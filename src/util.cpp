@@ -77,7 +77,7 @@ bool fLiteMode = false;
 bool fEnableInstantX = true;
 int nInstantXDepth = 10;
 int nDarksendRounds = 2;
-int nAnonymizeCropCoinAmount = 1000;
+int nAnonymizeFriendshipCoinAmount = 1000;
 int nLiquidityProvider = 0;
 /** Spork enforcement enabled time */
 int64_t enforceMasternodePaymentsTime = 4085657524;
@@ -1071,13 +1071,13 @@ void PrintExceptionContinue(std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\CropCoin
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\CropCoin
-    // Mac: ~/Library/Application Support/CropCoin
-    // Unix: ~/.cropcoin
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\FriendshipCoin
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\FriendshipCoin
+    // Mac: ~/Library/Application Support/FriendshipCoin
+    // Unix: ~/.friendshipcoin
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "CropCoin";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "FriendshipCoin";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -1089,10 +1089,10 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     fs::create_directory(pathRet);
-    return pathRet / "CropCoin";
+    return pathRet / "FriendshipCoin";
 #else
     // Unix
-    return pathRet / ".cropcoin";
+    return pathRet / ".friendshipcoin";
 #endif
 #endif
 }
@@ -1141,7 +1141,7 @@ void ClearDatadirCache()
 
 boost::filesystem::path GetConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "cropcoin.conf"));
+    boost::filesystem::path pathConfigFile(GetArg("-conf", "friendshipcoin.conf"));
     if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir(false) / pathConfigFile;
     return pathConfigFile;
 }
@@ -1186,7 +1186,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "cropcoind.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "friendshipcoind.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }

@@ -3,22 +3,22 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About CropCoin</source>
-        <translation>CropCoin Hakkında</translation>
+        <source>About FriendshipCoin</source>
+        <translation>FriendshipCoin Hakkında</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;CropCoin&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;CropCoin&lt;/b&gt; versiyonu</translation>
+        <source>&lt;b&gt;FriendshipCoin&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;FriendshipCoin&lt;/b&gt; versiyonu</translation>
     </message>
     <message>
         <location line="+41"/>
         <source>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2015-2017 The CropCoin developers</source>
+Copyright © 2015-2017 The FriendshipCoin developers</source>
         <translation>Telif Hakkı © 2009-2014 Bitcoin geliştiricileri
 Telif Hakkı © 2012-2014 NovaCoin geliştiricileri
-Telif Hakkı © 2015-2017 CropCoin geliştiricileri</translation>
+Telif Hakkı © 2015-2017 FriendshipCoin geliştiricileri</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -65,8 +65,8 @@ Bu ürün, OpenSSL projesi tarafından OpenSSL araç takımıThis product includ
     </message>
     <message>
         <location line="-43"/>
-        <source>These are your CropCoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Bunlar, ödeme almak için CropCoin adreslerinizdir. Her bir göndericiye farklı birini verebilir, böylece size kimin ödeme yaptığını takip edebilirsiniz.</translation>
+        <source>These are your FriendshipCoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation>Bunlar, ödeme almak için FriendshipCoin adreslerinizdir. Her bir göndericiye farklı birini verebilir, böylece size kimin ödeme yaptığını takip edebilirsiniz.</translation>
     </message>
     <message>
         <location line="+53"/>
@@ -80,8 +80,8 @@ Bu ürün, OpenSSL projesi tarafından OpenSSL araç takımıThis product includ
     </message>
     <message>
         <location line="+7"/>
-        <source>Sign a message to prove you own a CropCoin address</source>
-        <translation>Bir CropCoin adresine sahip olduğunu ispatlamak için bir mesaj imzala</translation>
+        <source>Sign a message to prove you own a FriendshipCoin address</source>
+        <translation>Bir FriendshipCoin adresine sahip olduğunu ispatlamak için bir mesaj imzala</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -95,8 +95,8 @@ Bu ürün, OpenSSL projesi tarafından OpenSSL araç takımıThis product includ
     </message>
     <message>
         <location line="-10"/>
-        <source>Verify a message to ensure it was signed with a specified CropCoin address</source>
-        <translation>Mesajın, belirli bir CropCoin adresiyle imzalandığından emin olmak için onu doğrula</translation>
+        <source>Verify a message to ensure it was signed with a specified FriendshipCoin address</source>
+        <translation>Mesajın, belirli bir FriendshipCoin adresiyle imzalandığından emin olmak için onu doğrula</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -263,8 +263,8 @@ Bu ürün, OpenSSL projesi tarafından OpenSSL araç takımıThis product includ
     </message>
     <message>
         <location line="+82"/>
-        <source>CropCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
-        <translation>CropCoin, şifreleme işlemini tamamlamak için şimdi kapatılacak. Cüzdanınızı şifrelemenin; coinlerinizin, bilgisayarınızı etkileyen zararlı yazılımlar tarafından çalınmasını bütünüyle engelleyemeyebileceğini unutmayınız.</translation>
+        <source>FriendshipCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
+        <translation>FriendshipCoin, şifreleme işlemini tamamlamak için şimdi kapatılacak. Cüzdanınızı şifrelemenin; coinlerinizin, bilgisayarınızı etkileyen zararlı yazılımlar tarafından çalınmasını bütünüyle engelleyemeyebileceğini unutmayınız.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -357,8 +357,8 @@ Bu ürün, OpenSSL projesi tarafından OpenSSL araç takımıThis product includ
     </message>
     <message>
         <location line="+4"/>
-        <source>Show information about CropCoin</source>
-        <translation>CropCoin hakkındaki bilgiyi göster</translation>
+        <source>Show information about FriendshipCoin</source>
+        <translation>FriendshipCoin hakkındaki bilgiyi göster</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -397,13 +397,13 @@ Bu ürün, OpenSSL projesi tarafından OpenSSL araç takımıThis product includ
     </message>
     <message>
         <location line="-55"/>
-        <source>Send coins to a CropCoin address</source>
-        <translation>Bir CropCoin adresine coin gönder</translation>
+        <source>Send coins to a FriendshipCoin address</source>
+        <translation>Bir FriendshipCoin adresine coin gönder</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>Modify configuration options for CropCoin</source>
-        <translation>CropCoin yapılandırma seçeneklerini değiştir</translation>
+        <source>Modify configuration options for FriendshipCoin</source>
+        <translation>FriendshipCoin yapılandırma seçeneklerini değiştir</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -443,8 +443,8 @@ Bu ürün, OpenSSL projesi tarafından OpenSSL araç takımıThis product includ
     <message>
         <location line="-214"/>
         <location line="+551"/>
-        <source>CropCoin</source>
-        <translation>CropCoin</translation>
+        <source>FriendshipCoin</source>
+        <translation>FriendshipCoin</translation>
     </message>
     <message>
         <location line="-551"/>
@@ -453,8 +453,8 @@ Bu ürün, OpenSSL projesi tarafından OpenSSL araç takımıThis product includ
     </message>
     <message>
         <location line="+193"/>
-        <source>&amp;About CropCoin</source>
-        <translation>CropCoin &amp;Hakkında</translation>
+        <source>&amp;About FriendshipCoin</source>
+        <translation>FriendshipCoin &amp;Hakkında</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -505,13 +505,13 @@ Bu ürün, OpenSSL projesi tarafından OpenSSL araç takımıThis product includ
     <message>
         <location line="+0"/>
         <location line="+58"/>
-        <source>CropCoin client</source>
-        <translation>CropCoin istemcisi</translation>
+        <source>FriendshipCoin client</source>
+        <translation>FriendshipCoin istemcisi</translation>
     </message>
     <message numerus="yes">
         <location line="+70"/>
-        <source>%n active connection(s) to CropCoin network</source>
-        <translation><numerusform>CropCoin ağına %n etkin bağlantı</numerusform><numerusform>CropCoin ağına %n etkin bağlantı</numerusform></translation>
+        <source>%n active connection(s) to FriendshipCoin network</source>
+        <translation><numerusform>FriendshipCoin ağına %n etkin bağlantı</numerusform><numerusform>FriendshipCoin ağına %n etkin bağlantı</numerusform></translation>
     </message>
     <message>
         <location line="+488"/>
@@ -605,8 +605,8 @@ Adres: %4
     <message>
         <location line="-15"/>
         <location line="+15"/>
-        <source>URI can not be parsed! This can be caused by an invalid CropCoin address or malformed URI parameters.</source>
-        <translation>URI ayrıştırılamadı! Bu, geçersiz bir CropCoin adresi veya hatalı URI parametreleri nedeniyle olabilir.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid FriendshipCoin address or malformed URI parameters.</source>
+        <translation>URI ayrıştırılamadı! Bu, geçersiz bir FriendshipCoin adresi veya hatalı URI parametreleri nedeniyle olabilir.</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -728,8 +728,8 @@ Adres: %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+104"/>
-        <source>A fatal error occurred. CropCoin can no longer continue safely and will quit.</source>
-        <translation>Önemli bir hata oluştu. CropCoin artık güvenli bir şekilde devam edemez ve şimdi kapatılacak.</translation>
+        <source>A fatal error occurred. FriendshipCoin can no longer continue safely and will quit.</source>
+        <translation>Önemli bir hata oluştu. FriendshipCoin artık güvenli bir şekilde devam edemez ve şimdi kapatılacak.</translation>
     </message>
 </context>
 <context>
@@ -1062,8 +1062,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid CropCoin address.</source>
-        <translation>Girilen %1 adresi, geçerli bir CropCoin adresi değildir.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid FriendshipCoin address.</source>
+        <translation>Girilen %1 adresi, geçerli bir FriendshipCoin adresi değildir.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1081,8 +1081,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../guiutil.cpp" line="+426"/>
         <location line="+12"/>
-        <source>CropCoin-Qt</source>
-        <translation>CropCoin-Qt</translation>
+        <source>FriendshipCoin-Qt</source>
+        <translation>FriendshipCoin-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1154,13 +1154,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start CropCoin after logging in to the system.</source>
-        <translation>Sisteme giriş yaptıktan sonra CropCoin&apos;i otomatik olarak başlat</translation>
+        <source>Automatically start FriendshipCoin after logging in to the system.</source>
+        <translation>Sisteme giriş yaptıktan sonra FriendshipCoin&apos;i otomatik olarak başlat</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start CropCoin on system login</source>
-        <translation>Sisteme girişte CropCoin&apos;i &amp;başlat</translation>
+        <source>&amp;Start FriendshipCoin on system login</source>
+        <translation>Sisteme girişte FriendshipCoin&apos;i &amp;başlat</translation>
     </message>
     <message>
         <location line="+21"/>
@@ -1169,8 +1169,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the CropCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Yönelticide CropCoin istemci portunu otomatik olarak aç. Bu, sadece yönelticiniz UPnP&apos;i desteklediğinde ve etkin olduğunda çalışır.</translation>
+        <source>Automatically open the FriendshipCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Yönelticide FriendshipCoin istemci portunu otomatik olarak aç. Bu, sadece yönelticiniz UPnP&apos;i desteklediğinde ve etkin olduğunda çalışır.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1179,8 +1179,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the CropCoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>CropCoin ağına bir SOCKS vekil sunucusu yoluyla bağlan (örn. Tor yoluyla bağlanıldığında)</translation>
+        <source>Connect to the FriendshipCoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>FriendshipCoin ağına bir SOCKS vekil sunucusu yoluyla bağlan (örn. Tor yoluyla bağlanıldığında)</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1254,8 +1254,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting CropCoin.</source>
-        <translation>Kullanıcı arabirimi dili buradan ayarlanabilir. Ayar, CropCoin yeniden başlatıldığında etkin olacaktır.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting FriendshipCoin.</source>
+        <translation>Kullanıcı arabirimi dili buradan ayarlanabilir. Ayar, FriendshipCoin yeniden başlatıldığında etkin olacaktır.</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -1321,8 +1321,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting CropCoin.</source>
-        <translation>Bu ayar, CropCoin&apos;i yeniden başlattıktan sonra etkin olacaktır.</translation>
+        <source>This setting will take effect after restarting FriendshipCoin.</source>
+        <translation>Bu ayar, FriendshipCoin&apos;i yeniden başlattıktan sonra etkin olacaktır.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1340,8 +1340,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+46"/>
         <location line="+247"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the CropCoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Görüntülenen bilginin tarihi geçmiş olabilir. Cüzdanınız, bağlantı kurulduktan sonra otomatik olarak CropCoin ağı ile senkronize olur ancak bu süreç, henüz tamamlanmamıştır.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the FriendshipCoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Görüntülenen bilginin tarihi geçmiş olabilir. Cüzdanınız, bağlantı kurulduktan sonra otomatik olarak FriendshipCoin ağı ile senkronize olur ancak bu süreç, henüz tamamlanmamıştır.</translation>
     </message>
     <message>
         <location line="-173"/>
@@ -1582,8 +1582,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the CropCoin-Qt help message to get a list with possible CropCoin command-line options.</source>
-        <translation>Muhtemel CropCoin komut satırı seçeneklerinin bir listesini getirmek için CropCoin-Qt yardım mesajını göster</translation>
+        <source>Show the FriendshipCoin-Qt help message to get a list with possible FriendshipCoin command-line options.</source>
+        <translation>Muhtemel FriendshipCoin komut satırı seçeneklerinin bir listesini getirmek için FriendshipCoin-Qt yardım mesajını göster</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1602,13 +1602,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="-104"/>
-        <source>CropCoin - Debug window</source>
-        <translation>CropCoin - Hata ayıklama penceresi</translation>
+        <source>FriendshipCoin - Debug window</source>
+        <translation>FriendshipCoin - Hata ayıklama penceresi</translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>CropCoin Core</source>
-        <translation>CropCoin Core</translation>
+        <source>FriendshipCoin Core</source>
+        <translation>FriendshipCoin Core</translation>
     </message>
     <message>
         <location line="+256"/>
@@ -1617,8 +1617,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the CropCoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>CropCoin hata ayıklama günlük kütüğü dosyasını, mevcut veri klasöründen aç. Bu işlem, büyük günlük kütüğü dosyaları için birkaç saniye sürebilir.</translation>
+        <source>Open the FriendshipCoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>FriendshipCoin hata ayıklama günlük kütüğü dosyasını, mevcut veri klasöründen aç. Bu işlem, büyük günlük kütüğü dosyaları için birkaç saniye sürebilir.</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -1627,8 +1627,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="+325"/>
-        <source>Welcome to the CropCoin RPC console.</source>
-        <translation>CropCoin RPC konsoluna hoş geldiniz.</translation>
+        <source>Welcome to the FriendshipCoin RPC console.</source>
+        <translation>FriendshipCoin RPC konsoluna hoş geldiniz.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1736,8 +1736,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location line="+86"/>
         <location line="+86"/>
         <location line="+32"/>
-        <source>0.00 CROP</source>
-        <translation>123.456 CROP {0.00 ?}</translation>
+        <source>0.00 FSC</source>
+        <translation>123.456 FSC {0.00 ?}</translation>
     </message>
     <message>
         <location line="-191"/>
@@ -1806,8 +1806,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+16"/>
-        <source>123.456 CROP</source>
-        <translation>123.456 CROP</translation>
+        <source>123.456 FSC</source>
+        <translation>123.456 FSC</translation>
     </message>
     <message>
         <location line="+31"/>
@@ -1821,8 +1821,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location filename="../sendcoinsdialog.cpp" line="-173"/>
-        <source>Enter a CropCoin address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
-        <translation>Bir CropCoin adresi gir (örn: B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</translation>
+        <source>Enter a FriendshipCoin address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
+        <translation>Bir FriendshipCoin adresi gir (örn: B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -1921,8 +1921,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+247"/>
-        <source>WARNING: Invalid CropCoin address</source>
-        <translation>UYARI: Geçersiz CropCoin adresi</translation>
+        <source>WARNING: Invalid FriendshipCoin address</source>
+        <translation>UYARI: Geçersiz FriendshipCoin adresi</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -1995,8 +1995,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a CropCoin address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
-        <translation>Bir CropCoin adresi girin (örn: B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</translation>
+        <source>Enter a FriendshipCoin address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
+        <translation>Bir FriendshipCoin adresi girin (örn: B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</translation>
     </message>
 </context>
 <context>
@@ -2056,8 +2056,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this CropCoin address</source>
-        <translation>Bu CropCoin adresine sahip olduğunuzu ispatlamak için mesajı imzala</translation>
+        <source>Sign the message to prove you own this FriendshipCoin address</source>
+        <translation>Bu FriendshipCoin adresine sahip olduğunuzu ispatlamak için mesajı imzala</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2088,8 +2088,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified CropCoin address</source>
-        <translation>Mesajın, belirtilen CropCoin adresiyle imzalandığından emin olmak için onu doğrula</translation>
+        <source>Verify the message to ensure it was signed with the specified FriendshipCoin address</source>
+        <translation>Mesajın, belirtilen FriendshipCoin adresiyle imzalandığından emin olmak için onu doğrula</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2099,8 +2099,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a CropCoin address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
-        <translation>Bir CropCoin adresi girin (örn: B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</translation>
+        <source>Enter a FriendshipCoin address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
+        <translation>Bir FriendshipCoin adresi girin (örn: B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -2109,8 +2109,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter CropCoin signature</source>
-        <translation>CropCoin imzası gir</translation>
+        <source>Enter FriendshipCoin signature</source>
+        <translation>FriendshipCoin imzası gir</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -2688,8 +2688,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+173"/>
-        <source>CropCoin version</source>
-        <translation>CropCoin versiyonu</translation>
+        <source>FriendshipCoin version</source>
+        <translation>FriendshipCoin versiyonu</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2747,7 +2747,7 @@ rpcpassword=%s
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;CropCoin Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;FriendshipCoin Alert&quot; admin@foo.com
 </source>
         <translation type="unfinished"/>
     </message>
@@ -2853,8 +2853,8 @@ for example: alertnotify=echo %%s | mail -s &quot;CropCoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="-103"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong CropCoin will not work properly.</source>
-        <translation>Uyarı: Lütfen bilgisayarınızın tarih ve saatinin doğru olduğunu kontrol ediniz! Saatiniz yanlış ise, CropCoin düzgün çalışmayacaktır.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong FriendshipCoin will not work properly.</source>
+        <translation>Uyarı: Lütfen bilgisayarınızın tarih ve saatinin doğru olduğunu kontrol ediniz! Saatiniz yanlış ise, FriendshipCoin düzgün çalışmayacaktır.</translation>
     </message>
     <message>
         <location line="+132"/>
@@ -3160,8 +3160,8 @@ for example: alertnotify=echo %%s | mail -s &quot;CropCoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+10"/>
-        <source>Initialization sanity check failed. CropCoin is shutting down.</source>
-        <translation>Başlangıç uygunluk kontrolü başarısız oldu. CropCoin kapatılıyor.</translation>
+        <source>Initialization sanity check failed. FriendshipCoin is shutting down.</source>
+        <translation>Başlangıç uygunluk kontrolü başarısız oldu. FriendshipCoin kapatılıyor.</translation>
     </message>
     <message>
         <location line="+50"/>
@@ -3225,13 +3225,13 @@ for example: alertnotify=echo %%s | mail -s &quot;CropCoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+4"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of CropCoin</source>
-        <translation>wallet.dat yüklenirken hata: Cüzdan, daha yeni bir CropCoin versiyonuna ihtiyaç duyuyor.</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of FriendshipCoin</source>
+        <translation>wallet.dat yüklenirken hata: Cüzdan, daha yeni bir FriendshipCoin versiyonuna ihtiyaç duyuyor.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Wallet needed to be rewritten: restart CropCoin to complete</source>
-        <translation>Cüzdanın yeniden yazılması gerekmektedir: Tamamlamak için CropCoin&apos;i yeniden başlatın</translation>
+        <source>Wallet needed to be rewritten: restart FriendshipCoin to complete</source>
+        <translation>Cüzdanın yeniden yazılması gerekmektedir: Tamamlamak için FriendshipCoin&apos;i yeniden başlatın</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3295,8 +3295,8 @@ for example: alertnotify=echo %%s | mail -s &quot;CropCoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+125"/>
-        <source>Unable to bind to %s on this computer. CropCoin is probably already running.</source>
-        <translation>Bu bilgisayarda %s bağlanamadı. CropCoin muhtemelen halen çalışmaktadır.</translation>
+        <source>Unable to bind to %s on this computer. FriendshipCoin is probably already running.</source>
+        <translation>Bu bilgisayarda %s bağlanamadı. FriendshipCoin muhtemelen halen çalışmaktadır.</translation>
     </message>
     <message>
         <location line="-101"/>
@@ -3335,7 +3335,7 @@ for example: alertnotify=echo %%s | mail -s &quot;CropCoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+3"/>
-        <source>Cannot obtain a lock on data directory %s. CropCoin is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. FriendshipCoin is probably already running.</source>
         <translation type="unfinished"/>
     </message>
     <message>

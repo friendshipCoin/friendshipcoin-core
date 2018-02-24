@@ -41,9 +41,9 @@ QString BitcoinUnits::name(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("CROP");
-    case mBTC: return QString("mCROP");
-    case uBTC: return QString::fromUtf8("μCROP");
+    case BTC: return QString("FSC");
+    case mBTC: return QString("mFSC");
+    case uBTC: return QString::fromUtf8("μFSC");
     default: return QString("???");
     }
 }
@@ -52,9 +52,9 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("CropCoins");
-    case mBTC: return QString("Milli-CropCoins (1 / 1,000)");
-    case uBTC: return QString("Micro-CropCoins (1 / 1,000,000)");
+    case BTC: return QString("FriendshipCoins");
+    case mBTC: return QString("Milli-FriendshipCoins (1 / 1,000)");
+    case uBTC: return QString("Micro-FriendshipCoins (1 / 1,000,000)");
     default: return QString("???");
     }
 }

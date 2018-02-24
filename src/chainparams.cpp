@@ -128,16 +128,16 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
-        vSeeds.push_back(CDNSSeedData("0","dns0.cropcoin.net"));
-        vSeeds.push_back(CDNSSeedData("1","dns1.cropcoin.net"));
-        vSeeds.push_back(CDNSSeedData("2","dns2.cropcoin.net"));
-        vSeeds.push_back(CDNSSeedData("3","dns3.cropcoin.net"));
-        vSeeds.push_back(CDNSSeedData("4","dns4.cropcoin.net"));
-        vSeeds.push_back(CDNSSeedData("5","dns5.cropcoin.net"));
-        vSeeds.push_back(CDNSSeedData("6","dns6.cropcoin.net"));
-        vSeeds.push_back(CDNSSeedData("7","dns7.cropcoin.net"));
-        vSeeds.push_back(CDNSSeedData("8","dns8.cropcoin.net"));
-        vSeeds.push_back(CDNSSeedData("9","dns9.cropcoin.net"));
+        vSeeds.push_back(CDNSSeedData("0","dns0.friendshipcoin.net"));
+        vSeeds.push_back(CDNSSeedData("1","dns1.friendshipcoin.net"));
+        vSeeds.push_back(CDNSSeedData("2","dns2.friendshipcoin.net"));
+        vSeeds.push_back(CDNSSeedData("3","dns3.friendshipcoin.net"));
+        vSeeds.push_back(CDNSSeedData("4","dns4.friendshipcoin.net"));
+        vSeeds.push_back(CDNSSeedData("5","dns5.friendshipcoin.net"));
+        vSeeds.push_back(CDNSSeedData("6","dns6.friendshipcoin.net"));
+        vSeeds.push_back(CDNSSeedData("7","dns7.friendshipcoin.net"));
+        vSeeds.push_back(CDNSSeedData("8","dns8.friendshipcoin.net"));
+        vSeeds.push_back(CDNSSeedData("9","dns9.friendshipcoin.net"));
 
         convertSeeds(vFixedSeeds, pnSeed, ARRAYLEN(pnSeed), nDefaultPort);
 

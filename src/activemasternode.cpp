@@ -9,7 +9,7 @@
 #include "clientversion.h"
 
 //
-// Bootup the masternode, look for a 1000 CROP input and register on the network
+// Bootup the masternode, look for a 1000 FSC input and register on the network
 //
 void CActiveMasternode::ManageStatus()
 {
@@ -246,7 +246,7 @@ bool CActiveMasternode::Register(std::string strService, std::string strKeyMaste
         LogPrintf("CActiveMasternode::Register() - Error: %s\n", errorMessage.c_str());
         return false;
     }
-    CCropCoincoinAddress address;
+    CFriendshipCoincoinAddress address;
     if (strRewardAddress != "")
     {
         if(!address.SetString(strRewardAddress))
@@ -409,7 +409,7 @@ bool CActiveMasternode::GetVinFromOutput(COutput out, CTxIn& vin, CPubKey& pubke
 
 	CTxDestination address1;
     ExtractDestination(pubScript, address1);
-    CCropCoincoinAddress address2(address1);
+    CFriendshipCoincoinAddress address2(address1);
 
     CKeyID keyID;
     if (!address2.GetKeyID(keyID)) {
@@ -448,7 +448,7 @@ vector<COutput> CActiveMasternode::SelectCoinsMasternode()
 // get all possible outputs for running masternode for a specific pubkey
 vector<COutput> CActiveMasternode::SelectCoinsMasternodeForPubKey(std::string collateralAddress)
 {
-    CCropCoincoinAddress address(collateralAddress);
+    CFriendshipCoincoinAddress address(collateralAddress);
     CScript scriptPubKey;
     scriptPubKey.SetDestination(address.Get());
     vector<COutput> vCoins;

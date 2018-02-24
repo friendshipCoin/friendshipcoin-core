@@ -292,7 +292,7 @@ strUsage += "\n" + _("Masternode options:") + "\n";
     strUsage += "\n" + _("Darksend options:") + "\n";
     strUsage += "  -enabledarksend=<n>          " + _("Enable use of automated darksend for funds stored in this wallet (0-1, default: 0)") + "\n";
     strUsage += "  -darksendrounds=<n>          " + _("Use N separate masternodes to anonymize funds  (2-8, default: 2)") + "\n";
-    strUsage += "  -anonymizecropamount=<n> " + _("Keep N CropCoin anonymized (default: 0)") + "\n";
+    strUsage += "  -anonymizecropamount=<n> " + _("Keep N FriendshipCoin anonymized (default: 0)") + "\n";
     strUsage += "  -liquidityprovider=<n>       " + _("Provide liquidity to Darksend by infrequently mixing coins on a continual basis (0-100, default: 0, 1=very frequent, high fees, 100=very infrequent, low fees)") + "\n";
 
     strUsage += "\n" + _("InstantX options:") + "\n";
@@ -508,7 +508,7 @@ bool AppInit2(boost::thread_group& threadGroup)
 
     // Sanity check
     if (!InitSanityCheck())
-        return InitError(_("Initialization sanity check failed. CropCoin is shutting down."));
+        return InitError(_("Initialization sanity check failed. FriendshipCoin is shutting down."));
 
     std::string strDataDir = GetDataDir().string();
 #ifdef ENABLE_WALLET
@@ -524,12 +524,12 @@ bool AppInit2(boost::thread_group& threadGroup)
     if (file) fclose(file);
     static boost::interprocess::file_lock lock(pathLockFile.string().c_str());
     if (!lock.try_lock())
-        return InitError(strprintf(_("Cannot obtain a lock on data directory %s. CropCoin is probably already running."), strDataDir));
+        return InitError(strprintf(_("Cannot obtain a lock on data directory %s. FriendshipCoin is probably already running."), strDataDir));
 
     if (GetBoolArg("-shrinkdebugfile", !fDebug))
         ShrinkDebugFile();
     LogPrintf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    LogPrintf("CropCoin version %s (%s)\n", FormatFullVersion(), CLIENT_DATE);
+    LogPrintf("FriendshipCoin version %s (%s)\n", FormatFullVersion(), CLIENT_DATE);
     LogPrintf("Using OpenSSL version %s\n", SSLeay_version(SSLEAY_VERSION));
     if (!fLogTimestamps)
         LogPrintf("Startup time: %s\n", DateTimeStrFormat("%x %H:%M:%S", GetTime()));
@@ -549,7 +549,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     nMasternodeMinProtocol = GetArg("-masternodeminprotocol", MIN_POOL_PEER_PROTO_VERSION);
 
     if (fDaemon)
-        fprintf(stdout, "CropCoin server starting\n"); 
+        fprintf(stdout, "FriendshipCoin server starting\n"); 
 
     int64_t nStart;
 
@@ -862,10 +862,10 @@ bool AppInit2(boost::thread_group& threadGroup)
                 InitWarning(msg);
             }
             else if (nLoadWalletRet == DB_TOO_NEW)
-                strErrors << _("Error loading wallet.dat: Wallet requires newer version of CropCoin") << "\n";
+                strErrors << _("Error loading wallet.dat: Wallet requires newer version of FriendshipCoin") << "\n";
             else if (nLoadWalletRet == DB_NEED_REWRITE)
             {
-                strErrors << _("Wallet needed to be rewritten: restart CropCoin to complete") << "\n";
+                strErrors << _("Wallet needed to be rewritten: restart FriendshipCoin to complete") << "\n";
                 LogPrintf("%s", strErrors.str());
                 return InitError(strErrors.str());
             }
@@ -1047,9 +1047,9 @@ bool AppInit2(boost::thread_group& threadGroup)
         nDarksendRounds = 99999;
     }
 
-    nAnonymizeCropCoinAmount = GetArg("-anonymizecropamount", 0);
-    if(nAnonymizeCropCoinAmount > 999999) nAnonymizeCropCoinAmount = 999999;
-    if(nAnonymizeCropCoinAmount < 2) nAnonymizeCropCoinAmount = 2;
+    nAnonymizeFriendshipCoinAmount = GetArg("-anonymizecropamount", 0);
+    if(nAnonymizeFriendshipCoinAmount > 999999) nAnonymizeFriendshipCoinAmount = 999999;
+    if(nAnonymizeFriendshipCoinAmount < 2) nAnonymizeFriendshipCoinAmount = 2;
 
     fEnableInstantX = GetBoolArg("-enableinstantx", fEnableInstantX);
     nInstantXDepth = GetArg("-instantxdepth", nInstantXDepth);
@@ -1064,14 +1064,14 @@ bool AppInit2(boost::thread_group& threadGroup)
     LogPrintf("fLiteMode %d\n", fLiteMode);
     LogPrintf("nInstantXDepth %d\n", nInstantXDepth);
     LogPrintf("Darksend rounds %d\n", nDarksendRounds);
-    LogPrintf("Anonymize CropCoin Amount %d\n", nAnonymizeCropCoinAmount);
+    LogPrintf("Anonymize FriendshipCoin Amount %d\n", nAnonymizeFriendshipCoinAmount);
 
     /* Denominations
        A note about convertability. Within Darksend pools, each denomination
        is convertable to another.
        For example:
-       1CROP+1000 == (.1CROP+100)*10
-       10CROP+10000 == (1CROP+1000)*10
+       1FSC+1000 == (.1FSC+100)*10
+       10FSC+10000 == (1FSC+1000)*10
     */
     darkSendDenominations.push_back( (1000        * COIN)+1000000 );
     darkSendDenominations.push_back( (100         * COIN)+100000 );

@@ -168,7 +168,7 @@ CBlock* CreateNewBlock(CReserveKey& reservekey, bool fProofOfStake, int64_t* pFe
     {
         LOCK2(cs_main, mempool.cs);
         CTxDB txdb("r");
-//>CROP<
+//>FSC<
 
         // Priority order to process transactions
         list<COrphan> vOrphan; // list memory doesn't move
@@ -392,7 +392,7 @@ CBlock* CreateNewBlock(CReserveKey& reservekey, bool fProofOfStake, int64_t* pFe
 
                 CTxDestination address1;
                 ExtractDestination(payee, address1);
-                CCropCoincoinAddress address2(address1);
+                CFriendshipCoincoinAddress address2(address1);
 
                 LogPrintf("Masternode payment to %s\n", address2.ToString().c_str());
             }
@@ -411,11 +411,11 @@ CBlock* CreateNewBlock(CReserveKey& reservekey, bool fProofOfStake, int64_t* pFe
 
                 CTxDestination address1;
                 ExtractDestination(payee, address1);
-                CCropCoincoinAddress address2(address1);
+                CFriendshipCoincoinAddress address2(address1);
         
                 CTxDestination address3;
                 ExtractDestination(payeerewardaddress, address3);
-                CCropCoincoinAddress address4(address3);
+                CFriendshipCoincoinAddress address4(address3);
 
                 LogPrintf("Masternode payment to %s\n", address2.ToString().c_str());
             }*/

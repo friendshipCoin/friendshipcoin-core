@@ -32,7 +32,7 @@ const QString BITCOIN_IPC_PREFIX("crop:");
 //
 static QString ipcServerName()
 {
-    QString name("CropCoinQt");
+    QString name("FriendshipCoinQt");
 
     // Append a simple hash of the datadir
     // Note that GetDataDir(true) returns a different path

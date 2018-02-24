@@ -67,7 +67,7 @@ struct MessageTableEntry
     }
 };
 
-/** Interface to CropCoin Secure Messaging from Qt view code. */
+/** Interface to FriendshipCoin Secure Messaging from Qt view code. */
 class MessageModel : public QAbstractTableModel
 {
     Q_OBJECT

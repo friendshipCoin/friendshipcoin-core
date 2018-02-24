@@ -161,10 +161,10 @@ Value checkkernel(const Array& params, bool fHelp)
     bool fCreateBlockTemplate = params.size() > 1 ? params[1].get_bool() : false;
 
     if (vNodes.empty())
-        throw JSONRPCError(-9, "CropCoin is not connected!");
+        throw JSONRPCError(-9, "FriendshipCoin is not connected!");
 
     if (IsInitialBlockDownload())
-        throw JSONRPCError(-10, "CropCoin is downloading blocks...");
+        throw JSONRPCError(-10, "FriendshipCoin is downloading blocks...");
 
     COutPoint kernel;
     CBlockIndex* pindexPrev = pindexBest;
@@ -242,10 +242,10 @@ Value getworkex(const Array& params, bool fHelp)
         );
 
     if (vNodes.empty())
-        throw JSONRPCError(-9, "CropCoin is not connected!");
+        throw JSONRPCError(-9, "FriendshipCoin is not connected!");
 
     if (IsInitialBlockDownload())
-        throw JSONRPCError(-10, "CropCoin is downloading blocks...");
+        throw JSONRPCError(-10, "FriendshipCoin is downloading blocks...");
 
     if (pindexBest->nHeight >= Params().LastPOWBlock())
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
@@ -376,10 +376,10 @@ Value getwork(const Array& params, bool fHelp)
             "If [data] is specified, tries to solve the block and returns true if it was successful.");
 
     if (vNodes.empty())
-        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "CropCoin is not connected!");
+        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "FriendshipCoin is not connected!");
 
     if (IsInitialBlockDownload())
-        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "CropCoin is downloading blocks...");
+        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "FriendshipCoin is downloading blocks...");
 
     if (pindexBest->nHeight >= Params().LastPOWBlock())
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
@@ -542,10 +542,10 @@ Value getblocktemplate(const Array& params, bool fHelp)
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid mode");
 
     if (vNodes.empty())
-        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "CropCoin is not connected!");
+        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "FriendshipCoin is not connected!");
 
     if (IsInitialBlockDownload())
-        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "CropCoin is downloading blocks...");
+        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "FriendshipCoin is downloading blocks...");
 
     if (pindexBest->nHeight >= Params().LastPOWBlock())
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");

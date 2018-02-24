@@ -18,14 +18,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "CropCoin"
-            VALUE "FileDescription",    "CropCoin-Qt (OSS GUI client for CropCoin)"
+            VALUE "CompanyName",        "FriendshipCoin"
+            VALUE "FileDescription",    "FriendshipCoin-Qt (OSS GUI client for FriendshipCoin)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "crop-qt"
-            VALUE "LegalCopyright",     "2009-2014 The Bitcoin developers, 2012-2014 The NovaCoin & PPCoin developers, 2015-2017 The CropCoin developers"
+            VALUE "LegalCopyright",     "2009-2014 The Bitcoin developers, 2012-2014 The NovaCoin & PPCoin developers, 2015-2017 The FriendshipCoin developers"
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
             VALUE "OriginalFilename",   "crop-qt.exe"
-            VALUE "ProductName",        "CropCoin-Qt"
+            VALUE "ProductName",        "FriendshipCoin-Qt"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

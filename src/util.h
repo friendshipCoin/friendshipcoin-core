@@ -121,7 +121,7 @@ extern bool fLiteMode;
 extern bool fEnableInstantX;
 extern int nInstantXDepth;
 extern int nDarksendRounds;
-extern int nAnonymizeCropCoinAmount;
+extern int nAnonymizeFriendshipCoinAmount;
 extern int nLiquidityProvider;
 extern bool fEnableDarksend;
 extern int64_t enforceMasternodePaymentsTime;

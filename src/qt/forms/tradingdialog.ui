@@ -704,12 +704,12 @@
             </font>
            </property>
            <property name="text">
-            <string>CROP Available:</string>
+            <string>FSC Available:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="CROPAvailableLabel">
+          <widget class="QLabel" name="FSCAvailableLabel">
            <property name="palette">
             <palette>
              <active>
@@ -1140,7 +1140,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="labelCROP">
+          <widget class="QLabel" name="labelFSC">
            <property name="font">
             <font>
              <weight>75</weight>
@@ -1148,7 +1148,7 @@
             </font>
            </property>
            <property name="text">
-            <string> CROP</string>
+            <string> FSC</string>
            </property>
           </widget>
          </item>
@@ -1186,7 +1186,7 @@
        <item row="4" column="4">
         <widget class="QLabel" name="label_4">
          <property name="text">
-          <string>CROP</string>
+          <string>FSC</string>
          </property>
         </widget>
        </item>
@@ -1203,7 +1203,7 @@
         </widget>
        </item>
        <item row="4" column="9">
-        <widget class="QLineEdit" name="UnitsInputCROP">
+        <widget class="QLineEdit" name="UnitsInputFSC">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -1222,7 +1222,7 @@
        <item row="4" column="10">
         <widget class="QLabel" name="label_22">
          <property name="text">
-          <string>CROP</string>
+          <string>FSC</string>
          </property>
         </widget>
        </item>
@@ -2237,16 +2237,16 @@
         </layout>
        </item>
        <item row="7" column="3">
-        <widget class="QPushButton" name="BuyCROP">
+        <widget class="QPushButton" name="BuyFSC">
          <property name="text">
-          <string>Buy CROP</string>
+          <string>Buy FSC</string>
          </property>
         </widget>
        </item>
        <item row="7" column="9">
-        <widget class="QPushButton" name="SellCROPBTN">
+        <widget class="QPushButton" name="SellFSCBTN">
          <property name="text">
-          <string>Sell CROP</string>
+          <string>Sell FSC</string>
          </property>
         </widget>
        </item>
@@ -2313,14 +2313,14 @@
         </widget>
        </item>
        <item row="0" column="1" colspan="5">
-        <widget class="QLabel" name="CROPDemand">
+        <widget class="QLabel" name="FSCDemand">
          <property name="font">
           <font>
            <pointsize>8</pointsize>
           </font>
          </property>
          <property name="text">
-          <string>Demand: 0.00000000 CROP</string>
+          <string>Demand: 0.00000000 FSC</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2328,9 +2328,9 @@
         </widget>
        </item>
        <item row="0" column="9" colspan="3">
-        <widget class="QLabel" name="CROPSupply">
+        <widget class="QLabel" name="FSCSupply">
          <property name="text">
-          <string>Supply: 0.00000000 CROP</string>
+          <string>Supply: 0.00000000 FSC</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2830,7 +2830,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Amount in CROP:</string>
+            <string>Amount in FSC:</string>
            </property>
           </widget>
          </item>
@@ -3279,7 +3279,7 @@
             </font>
            </property>
            <property name="text">
-            <string>CROP</string>
+            <string>FSC</string>
            </property>
           </widget>
          </item>
@@ -3797,7 +3797,7 @@
           </font>
          </property>
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Instructions:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;To use the cross sending feature you need to have &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;CROP available to spend on Bittrex. If you don't have any &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;you can find your deposit address on the &amp;quot;Balance&amp;quot; tab.&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;1. Enter the amount you want to receive in Bitcoin.&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;2. Enter the Bitcoin address you are sending to.&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;3. Check that the Total with fee's is correct.&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;4. Press send and watch the magic happen.&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Notes.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;Total w/ fees: N/A means you dont have enough CROP to sell !&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;All trades are done through Bittrex using your own balance and API keys.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;Encrypt and backup your wallet when using this feature.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;If you don't have a password you bittrex account will be accessible 24/7&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;Withdrawal fee of 0.002 and 0.25% taken by Bittrex.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Instructions:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;To use the cross sending feature you need to have &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;FSC available to spend on Bittrex. If you don't have any &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;you can find your deposit address on the &amp;quot;Balance&amp;quot; tab.&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;1. Enter the amount you want to receive in Bitcoin.&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;2. Enter the Bitcoin address you are sending to.&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;3. Check that the Total with fee's is correct.&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;4. Press send and watch the magic happen.&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Notes.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;Total w/ fees: N/A means you dont have enough FSC to sell !&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;All trades are done through Bittrex using your own balance and API keys.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;Encrypt and backup your wallet when using this feature.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;If you don't have a password you bittrex account will be accessible 24/7&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;Withdrawal fee of 0.002 and 0.25% taken by Bittrex.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -3865,12 +3865,12 @@
             </font>
            </property>
            <property name="text">
-            <string>CROP Balance:</string>
+            <string>FSC Balance:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="BittrexCROPLabel">
+          <widget class="QLabel" name="BittrexFSCLabel">
            <property name="palette">
             <palette>
              <active>
@@ -4314,7 +4314,7 @@
             </font>
            </property>
            <property name="text">
-            <string>CROP</string>
+            <string>FSC</string>
            </property>
           </widget>
          </item>
@@ -4917,12 +4917,12 @@
           </font>
          </property>
          <property name="text">
-          <string>CROP Balance:</string>
+          <string>FSC Balance:</string>
          </property>
         </widget>
        </item>
        <item row="0" column="3">
-        <widget class="QLabel" name="CROPBalanceLabel">
+        <widget class="QLabel" name="FSCBalanceLabel">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -4988,12 +4988,12 @@
           </font>
          </property>
          <property name="text">
-          <string>CROP Available:</string>
+          <string>FSC Available:</string>
          </property>
         </widget>
        </item>
        <item row="1" column="3">
-        <widget class="QLabel" name="CROPAvailableLabel_2">
+        <widget class="QLabel" name="FSCAvailableLabel_2">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -5046,12 +5046,12 @@
           </font>
          </property>
          <property name="text">
-          <string>CROP Pending:</string>
+          <string>FSC Pending:</string>
          </property>
         </widget>
        </item>
        <item row="2" column="3">
-        <widget class="QLabel" name="CROPPendingLabel">
+        <widget class="QLabel" name="FSCPendingLabel">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -5102,7 +5102,7 @@
           </font>
          </property>
          <property name="text">
-          <string>Generate CROP Coin Deposit Address</string>
+          <string>Generate FSC Coin Deposit Address</string>
          </property>
         </widget>
        </item>
@@ -5237,7 +5237,7 @@
           </font>
          </property>
          <property name="text">
-          <string>Withdraw CROP:</string>
+          <string>Withdraw FSC:</string>
          </property>
         </widget>
        </item>
@@ -5356,9 +5356,9 @@
       <zorder>label_13</zorder>
       <zorder>label_11</zorder>
       <zorder>BitcoinBalanceLabel</zorder>
-      <zorder>CROPBalanceLabel</zorder>
-      <zorder>CROPAvailableLabel_2</zorder>
-      <zorder>CROPPendingLabel</zorder>
+      <zorder>FSCBalanceLabel</zorder>
+      <zorder>FSCAvailableLabel_2</zorder>
+      <zorder>FSCPendingLabel</zorder>
       <zorder>BitcoinAvailableLabel</zorder>
       <zorder>BitcoinPendingLabel</zorder>
       <zorder>label_33</zorder>

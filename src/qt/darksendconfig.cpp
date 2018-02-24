@@ -42,7 +42,7 @@ void DarksendConfig::clickBasic()
         model->getOptionsModel()->getDisplayUnit(), 1000 * COIN));
     QMessageBox::information(this, tr("Darksend Configuration"),
         tr(
-            "Darksend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening CropCoin's configuration screen."
+            "Darksend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening FriendshipCoin's configuration screen."
         ).arg(strAmount)
     );
 
@@ -57,7 +57,7 @@ void DarksendConfig::clickHigh()
         model->getOptionsModel()->getDisplayUnit(), 1000 * COIN));
     QMessageBox::information(this, tr("Darksend Configuration"),
         tr(
-            "Darksend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening CropCoin's configuration screen."
+            "Darksend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening FriendshipCoin's configuration screen."
         ).arg(strAmount)
     );
 
@@ -84,8 +84,8 @@ void DarksendConfig::configure(bool enabled, int coins, int rounds) {
     QSettings settings;
 
     settings.setValue("nDarksendRounds", rounds);
-    settings.setValue("nAnonymizeCropCoinAmount", coins);
+    settings.setValue("nAnonymizeFriendshipCoinAmount", coins);
 
     nDarksendRounds = rounds;
-    nAnonymizeCropCoinAmount = coins;
+    nAnonymizeFriendshipCoinAmount = coins;
 }

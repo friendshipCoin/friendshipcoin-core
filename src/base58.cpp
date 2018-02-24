@@ -226,11 +226,11 @@ int CBase58Data::CompareTo(const CBase58Data& b58) const {
 }
 
 namespace {
-    class CCropCoincoinAddressVisitor : public boost::static_visitor<bool> {
+    class CFriendshipCoincoinAddressVisitor : public boost::static_visitor<bool> {
     private:
-        CCropCoincoinAddress *addr;
+        CFriendshipCoincoinAddress *addr;
     public:
-        CCropCoincoinAddressVisitor(CCropCoincoinAddress *addrIn) : addr(addrIn) { }
+        CFriendshipCoincoinAddressVisitor(CFriendshipCoincoinAddress *addrIn) : addr(addrIn) { }
 
         bool operator()(const CKeyID &id) const { return addr->Set(id); }
         bool operator()(const CScriptID &id) const { return addr->Set(id); }
@@ -250,28 +250,28 @@ namespace {
     };
 };
 
-bool CCropCoincoinAddress::Set(const CKeyID &id) {
+bool CFriendshipCoincoinAddress::Set(const CKeyID &id) {
     SetData(Params().Base58Prefix(CChainParams::PUBKEY_ADDRESS), &id, 20);
     return true;
 }
 
-bool CCropCoincoinAddress::Set(const CScriptID &id) {
+bool CFriendshipCoincoinAddress::Set(const CScriptID &id) {
     SetData(Params().Base58Prefix(CChainParams::SCRIPT_ADDRESS), &id, 20);
     return true;
 }
 
-bool CCropCoincoinAddress::Set(const CTxDestination &dest) {
-    return boost::apply_visitor(CCropCoincoinAddressVisitor(this), dest);
+bool CFriendshipCoincoinAddress::Set(const CTxDestination &dest) {
+    return boost::apply_visitor(CFriendshipCoincoinAddressVisitor(this), dest);
 }
 
-bool CCropCoincoinAddress::IsValid() const {
+bool CFriendshipCoincoinAddress::IsValid() const {
     bool fCorrectSize = vchData.size() == 20;
     bool fKnownVersion = vchVersion == Params().Base58Prefix(CChainParams::PUBKEY_ADDRESS) ||
                          vchVersion == Params().Base58Prefix(CChainParams::SCRIPT_ADDRESS);
     return fCorrectSize && fKnownVersion;
 }
 
-CTxDestination CCropCoincoinAddress::Get() const {
+CTxDestination CFriendshipCoincoinAddress::Get() const {
     if (!IsValid())
         return CNoDestination();
     uint160 id;
@@ -284,7 +284,7 @@ CTxDestination CCropCoincoinAddress::Get() const {
         return CNoDestination();
 }
 
-bool CCropCoincoinAddress::GetKeyID(CKeyID &keyID) const {
+bool CFriendshipCoincoinAddress::GetKeyID(CKeyID &keyID) const {
     if (!IsValid() || vchVersion != Params().Base58Prefix(CChainParams::PUBKEY_ADDRESS))
         return false;
     uint160 id;
@@ -293,34 +293,34 @@ bool CCropCoincoinAddress::GetKeyID(CKeyID &keyID) const {
     return true;
 }
 
-bool CCropCoincoinAddress::IsScript() const {
+bool CFriendshipCoincoinAddress::IsScript() const {
     return IsValid() && vchVersion == Params().Base58Prefix(CChainParams::SCRIPT_ADDRESS);
 }
 
-void CCropCoincoinSecret::SetKey(const CKey& vchSecret) {
+void CFriendshipCoincoinSecret::SetKey(const CKey& vchSecret) {
     assert(vchSecret.IsValid());
     SetData(Params().Base58Prefix(CChainParams::SECRET_KEY), vchSecret.begin(), vchSecret.size());
     if (vchSecret.IsCompressed())
         vchData.push_back(1);
 }
 
-CKey CCropCoincoinSecret::GetKey() {
+CKey CFriendshipCoincoinSecret::GetKey() {
     CKey ret;
     ret.Set(&vchData[0], &vchData[32], vchData.size() > 32 && vchData[32] == 1);
     return ret;
 }
 
-bool CCropCoincoinSecret::IsValid() const {
+bool CFriendshipCoincoinSecret::IsValid() const {
     bool fExpectedFormat = vchData.size() == 32 || (vchData.size() == 33 && vchData[32] == 1);
     bool fCorrectVersion = vchVersion == Params().Base58Prefix(CChainParams::SECRET_KEY);
     return fExpectedFormat && fCorrectVersion;
 }
 
-bool CCropCoincoinSecret::SetString(const char* pszSecret) {
+bool CFriendshipCoincoinSecret::SetString(const char* pszSecret) {
     return CBase58Data::SetString(pszSecret) && IsValid();
 }
 
-bool CCropCoincoinSecret::SetString(const std::string& strSecret) {
+bool CFriendshipCoincoinSecret::SetString(const std::string& strSecret) {
     return SetString(strSecret.c_str());
 }
 

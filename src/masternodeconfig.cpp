@@ -45,7 +45,7 @@ bool CMasternodeConfig::read(boost::filesystem::path path) {
             }
             CBitcoinAddress address(rewardAddress);
             if (!address.IsValid()) {
-                LogPrintf("Invalid CROP address in masternode.conf line: %s\n", line.c_str());
+                LogPrintf("Invalid FSC address in masternode.conf line: %s\n", line.c_str());
                 streamConfig.close();
                 return false;
             }

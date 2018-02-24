@@ -24,11 +24,11 @@ SignVerifyMessageDialog::SignVerifyMessageDialog(QWidget *parent) :
 
 #if (QT_VERSION >= 0x040700)
     /* Do not move this to the XML file, Qt before 4.7 will choke on it */
-    ui->addressIn_SM->setPlaceholderText(tr("Enter a CropCoin address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)"));
+    ui->addressIn_SM->setPlaceholderText(tr("Enter a FriendshipCoin address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)"));
     ui->signatureOut_SM->setPlaceholderText(tr("Click \"Sign Message\" to generate signature"));
 
-    ui->addressIn_VM->setPlaceholderText(tr("Enter a CropCoin address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)"));
-    ui->signatureIn_VM->setPlaceholderText(tr("Enter CropCoin signature"));
+    ui->addressIn_VM->setPlaceholderText(tr("Enter a FriendshipCoin address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)"));
+    ui->signatureIn_VM->setPlaceholderText(tr("Enter FriendshipCoin signature"));
 #endif
 
     GUIUtil::setupAddressWidget(ui->addressIn_SM, this);
@@ -108,7 +108,7 @@ void SignVerifyMessageDialog::on_signMessageButton_SM_clicked()
     /* Clear old signature to ensure users don't get confused on error with an old signature displayed */
     ui->signatureOut_SM->clear();
 
-    CCropCoincoinAddress addr(ui->addressIn_SM->text().toStdString());
+    CFriendshipCoincoinAddress addr(ui->addressIn_SM->text().toStdString());
     if (!addr.IsValid())
     {
         ui->addressIn_SM->setValid(false);
@@ -189,7 +189,7 @@ void SignVerifyMessageDialog::on_addressBookButton_VM_clicked()
 
 void SignVerifyMessageDialog::on_verifyMessageButton_VM_clicked()
 {
-    CCropCoincoinAddress addr(ui->addressIn_VM->text().toStdString());
+    CFriendshipCoincoinAddress addr(ui->addressIn_VM->text().toStdString());
     if (!addr.IsValid())
     {
         ui->addressIn_VM->setValid(false);
@@ -230,7 +230,7 @@ void SignVerifyMessageDialog::on_verifyMessageButton_VM_clicked()
         return;
     }
 
-    if (!(CCropCoincoinAddress(pubkey.GetID()) == addr))
+    if (!(CFriendshipCoincoinAddress(pubkey.GetID()) == addr))
     {
         ui->statusLabel_VM->setStyleSheet("QLabel { color: red; }");
         ui->statusLabel_VM->setText(QString("<nobr>") + tr("Message verification failed.") + QString("</nobr>"));

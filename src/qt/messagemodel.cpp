@@ -330,7 +330,7 @@ MessageModel::~MessageModel()
 
 bool MessageModel::getAddressOrPubkey(QString &address, QString &pubkey) const
 {
-    CCropCoincoinAddress addressParsed(address.toStdString());
+    CFriendshipCoincoinAddress addressParsed(address.toStdString());
 
     if(addressParsed.IsValid()) {
         CKeyID  destinationAddress;
@@ -398,7 +398,7 @@ MessageModel::StatusCode MessageModel::sendMessages(const QList<SendMessagesReci
 
         // Add addresses / update labels that we've sent to to the address book
         std::string strAddress = rcp.address.toStdString();
-        CTxDestination dest = CCropCoincoinAddress(strAddress).Get();
+        CTxDestination dest = CFriendshipCoincoinAddress(strAddress).Get();
         std::string strLabel = rcp.label.toStdString();
         {
             LOCK(wallet->cs_wallet);

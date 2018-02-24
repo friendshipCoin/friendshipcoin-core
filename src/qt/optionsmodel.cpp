@@ -66,13 +66,13 @@ void OptionsModel::Init()
     if (!settings.contains("nDarksendRounds"))
         settings.setValue("nDarksendRounds", 2);
     nDarksendRounds = settings.value("nDarksendRounds").toLongLong();
-    if (!settings.contains("nAnonymizeCropCoinAmount"))
-        settings.setValue("nAnonymizeCropCoinAmount", 1000);
-    nAnonymizeCropCoinAmount = settings.value("nAnonymizeCropCoinAmount").toLongLong();
+    if (!settings.contains("nAnonymizeFriendshipCoinAmount"))
+        settings.setValue("nAnonymizeFriendshipCoinAmount", 1000);
+    nAnonymizeFriendshipCoinAmount = settings.value("nAnonymizeFriendshipCoinAmount").toLongLong();
     if (settings.contains("nDarksendRounds"))
         SoftSetArg("-darksendrounds", settings.value("nDarksendRounds").toString().toStdString());
-    if (settings.contains("nAnonymizeCropCoinAmount"))
-        SoftSetArg("-anonymizetraveamount", settings.value("nAnonymizeCropCoinAmount").toString().toStdString());
+    if (settings.contains("nAnonymizeFriendshipCoinAmount"))
+        SoftSetArg("-anonymizetraveamount", settings.value("nAnonymizeFriendshipCoinAmount").toString().toStdString());
 
 
 
@@ -206,8 +206,8 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return fCoinControlFeatures;
         case DarksendRounds:
             return QVariant(nDarksendRounds);
-        case AnonymizeCropCoinAmount:
-            return QVariant(nAnonymizeCropCoinAmount);
+        case AnonymizeFriendshipCoinAmount:
+            return QVariant(nAnonymizeFriendshipCoinAmount);
         case UseBlackTheme:
             return QVariant(fUseBlackTheme);
         default:
@@ -318,10 +318,10 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
             settings.setValue("nDarksendRounds", nDarksendRounds);
             emit darksendRoundsChanged(nDarksendRounds);
             break;
-        case AnonymizeCropCoinAmount:
-            nAnonymizeCropCoinAmount = value.toInt();
-            settings.setValue("nAnonymizeCropCoinAmount", nAnonymizeCropCoinAmount);
-            emit AnonymizeCropCoinAmountChanged(nAnonymizeCropCoinAmount);
+        case AnonymizeFriendshipCoinAmount:
+            nAnonymizeFriendshipCoinAmount = value.toInt();
+            settings.setValue("nAnonymizeFriendshipCoinAmount", nAnonymizeFriendshipCoinAmount);
+            emit AnonymizeFriendshipCoinAmountChanged(nAnonymizeFriendshipCoinAmount);
             break;
         default:
             break;

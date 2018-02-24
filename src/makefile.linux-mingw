@@ -131,7 +131,7 @@ ifeq (${USE_WALLET}, 1)
         obj/walletdb.o
 endif
 
-all: cropcoind.exe
+all: friendshipcoind.exe
 
 LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a
 DEFS += -I"$(CURDIR)/leveldb/include"
@@ -144,13 +144,13 @@ obj/txdb-leveldb.o: leveldb/libleveldb.a
 obj/%.o: %.cpp $(HEADERS)
 	$(CXX) -c $(CFLAGS) -o $@ $<
 
-cropcoind.exe: $(OBJS:obj/%=obj/%)
+friendshipcoind.exe: $(OBJS:obj/%=obj/%)
 	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS) -lshlwapi
-	$(STRIP) cropcoind.exe
+	$(STRIP) friendshipcoind.exe
 
 clean:
 	-rm -f obj/*.o
-	-rm -f cropcoind.exe
+	-rm -f friendshipcoind.exe
 	-rm -f obj/build.h
 	cd leveldb && TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) clean && cd ..
 
