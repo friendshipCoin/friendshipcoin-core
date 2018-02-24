@@ -75,7 +75,7 @@ public:
         //    CTxIn(COutPoint(0000000000, 4294967295), coinbase 00012a24323020466562203230313420426974636f696e2041544d7320636f6d6520746f20555341)
         //    CTxOut(empty)
         //  vMerkleTree: 12630d16a9
-        const char* pszTimestamp = "New legend is born. 02 February 2018.";
+        const char* pszTimestamp = "It's time to get friendly!";
 
 
         std::vector<CTxIn> vin;
@@ -91,16 +91,15 @@ public:
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
         genesis.nTime    = 1517569200;
-        //genesis.nBits    = 0x1f00ffff;
         genesis.nBits    = 0x1e0fffff;
         genesis.nNonce   = 111638;
 
         hashGenesisBlock = genesis.GetHash();
 
-        assert(hashGenesisBlock == uint256("0x0000074d7678e79efb00bbdef7a4724403823110f28ef8263b879f39b8d372b7"));
-        assert(genesis.hashMerkleRoot == uint256("0x15f6d741e78cbb850dab1a4ba14d518ef324f0673b3507a9f31fa092187af33d"));
+        //assert(hashGenesisBlock == uint256("0x0000074d7678e79efb00bbdef7a4724403823110f28ef8263b879f39b8d372b7"));
+        //assert(genesis.hashMerkleRoot == uint256("0x15f6d741e78cbb850dab1a4ba14d518ef324f0673b3507a9f31fa092187af33d"));
 
-        /*uint256 hashTarget = CBigNum().SetCompact(genesis.nBits).getuint256();
+        uint256 hashTarget = CBigNum().SetCompact(genesis.nBits).getuint256();
         uint256 thash;
         unsigned int profile = 0x0;
 
@@ -119,25 +118,16 @@ public:
 
         printf("genesis.nTime = %u \n", genesis.nTime);
         printf("genesis.nNonce = %u \n", genesis.nNonce);
-        printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());*/
+        printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,87);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,85);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,95);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,35);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,153);
-        base58Prefixes[STEALTH_ADDRESS] = std::vector<unsigned char>(1,40);
+        base58Prefixes[STEALTH_ADDRESS] = std::vector<unsigned char>(1,75);
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
-        vSeeds.push_back(CDNSSeedData("0","dns0.friendshipcoin.net"));
-        vSeeds.push_back(CDNSSeedData("1","dns1.friendshipcoin.net"));
-        vSeeds.push_back(CDNSSeedData("2","dns2.friendshipcoin.net"));
-        vSeeds.push_back(CDNSSeedData("3","dns3.friendshipcoin.net"));
-        vSeeds.push_back(CDNSSeedData("4","dns4.friendshipcoin.net"));
-        vSeeds.push_back(CDNSSeedData("5","dns5.friendshipcoin.net"));
-        vSeeds.push_back(CDNSSeedData("6","dns6.friendshipcoin.net"));
-        vSeeds.push_back(CDNSSeedData("7","dns7.friendshipcoin.net"));
-        vSeeds.push_back(CDNSSeedData("8","dns8.friendshipcoin.net"));
-        vSeeds.push_back(CDNSSeedData("9","dns9.friendshipcoin.net"));
+        vSeeds.push_back(CDNSSeedData("0","127.0.0.1"));
 
         convertSeeds(vFixedSeeds, pnSeed, ARRAYLEN(pnSeed), nDefaultPort);
 
