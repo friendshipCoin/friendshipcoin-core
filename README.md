@@ -1,0 +1,1 @@
+# friendshipcoin-core
