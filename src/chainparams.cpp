@@ -120,7 +120,7 @@ public:
         printf("genesis.nTime = %u \n", genesis.nTime);
         printf("genesis.nNonce = %u \n", genesis.nNonce);
         printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
-        printf("genesis.MerkleRoot = %s\n", genesis.BuildMerkleTree().ToString().c_str());
+        printf("genesis.MerkleRoot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
         exit(0);
         // END genesis block code
 
