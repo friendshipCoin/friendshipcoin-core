@@ -12,6 +12,7 @@ apt-get install libminiupnpc-dev -y
 export EXIP=`wget -qO- eth0.me`
 apt-get install -y pwgen
 export RPC_PASSWORD=`pwgen -1 20 -n`
+mkdir /$HOME/.friendshipcoin
 printf "rpcuser=user\nrpcpassword=$RPC_PASSWORD\nrpcport=58009\ndaemon=1\nlisten=1\nserver=1\nmaxconnections=256\nrpcallowip=127.0.0.1\nexternalip=$EXIP:58008\n" > /$HOME/.friendshipcoin/$CONFIG_FILE
 git clone $CROP_REPO $TMP_FOLDER
 cd $TMP_FOLDER/src/secp256k1
