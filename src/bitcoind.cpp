@@ -54,10 +54,10 @@ bool AppInit(int argc, char* argv[])
             // First part of help message is specific to bitcoind / RPC client
             std::string strUsage = _("FriendshipCoin version") + " " + FormatFullVersion() + "\n\n" +
                 _("Usage:") + "\n" +
-                  "  cropd [options]                     " + "\n" +
-                  "  cropd [options] <command> [params]  " + _("Send command to -server or cropd") + "\n" +
-                  "  cropd [options] help                " + _("List commands") + "\n" +
-                  "  cropd [options] help <command>      " + _("Get help for a command") + "\n";
+                  "  friendshipcoind [options]                     " + "\n" +
+                  "  friendshipcoind [options] <command> [params]  " + _("Send command to -server or friendshipcoind") + "\n" +
+                  "  friendshipcoind [options] help                " + _("List commands") + "\n" +
+                  "  friendshipcoind [options] help <command>      " + _("Get help for a command") + "\n";
 
             strUsage += "\n" + HelpMessage();
 

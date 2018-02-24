@@ -255,7 +255,7 @@ static const CRPCCommand vRPCCommands[] =
     { "spork",                  &spork,                  true,      false,      false },
     { "masternode",             &masternode,             true,      false,      true },
     { "masternodelist",         &masternodelist,         true,      false,      false },
-    
+
 #ifdef ENABLE_WALLET
     { "darksend",               &darksend,               false,     false,      true },
     { "getmininginfo",          &getmininginfo,          true,      false,     false },
@@ -523,7 +523,7 @@ void StartRPCThreads()
     {
         unsigned char rand_pwd[32];
         GetRandBytes(rand_pwd, 32);
-        string strWhatAmI = "To use cropd";
+        string strWhatAmI = "To use friendshipcoind";
         if (mapArgs.count("-server"))
             strWhatAmI = strprintf(_("To use the %s option"), "\"-server\"");
         else if (mapArgs.count("-daemon"))
@@ -871,7 +871,7 @@ json_spirit::Value CRPCTable::execute(const std::string &strMethod, const json_s
 }
 
 std::string HelpExampleCli(string methodname, string args){
-    return "> cropd " + methodname + " " + args + "\n";
+    return "> friendshipcoind " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(string methodname, string args){
