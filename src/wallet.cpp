@@ -2459,7 +2459,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
                 {
                     // Fill a vout to ourself
                     // TODO: pass in scriptChange instead of reservekey so
-                    // change transaction isn't always pay-to-crop-address
+                    // change transaction isn't always pay-to-fsc-address
                     CScript scriptChange;
 
                     // coin control: send change to custom address
@@ -3568,21 +3568,21 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
 
         txNew.vout[payments-2].scriptPubKey = payee;
         txNew.vout[payments-2].nValue = 0;
-        
+
         txNew.vout[payments-1].scriptPubKey = payeerewardaddress;
-        txNew.vout[payments-1].nValue = 0;        
+        txNew.vout[payments-1].nValue = 0;
 
         CTxDestination address1;
         ExtractDestination(payee, address1);
         CFriendshipCoincoinAddress address2(address1);
-        
+
         CTxDestination address3;
         ExtractDestination(payeerewardaddress, address3);
         CFriendshipCoincoinAddress address4(address3);
 
         LogPrintf("Masternode payment to %s\n", address2.ToString().c_str());
     }
-    
+
     int64_t blockValue = nCredit;
     int64_t masternodePayment = GetMasternodePayment(pindexPrev->nHeight+1, nReward);
 

@@ -75,7 +75,7 @@ public:
 uint64_t nLastBlockTx = 0;
 uint64_t nLastBlockSize = 0;
 int64_t nLastCoinStakeSearchInterval = 0;
- 
+
 // We want to sort transactions by priority and fee, so:
 typedef boost::tuple<double, double, CTransaction*> TxPriority;
 class TxPriorityCompare
@@ -354,7 +354,7 @@ CBlock* CreateNewBlock(CReserveKey& reservekey, bool fProofOfStake, int64_t* pFe
             LogPrintf("CreateNewBlock(): total size %u\n", nBlockSize);
 
         if(!fProofOfStake) {
-            
+
             /*int payments = 1;
             CScript payeerewardaddress = CScript();
             int payeerewardpercent = 0;
@@ -366,7 +366,7 @@ CBlock* CreateNewBlock(CReserveKey& reservekey, bool fProofOfStake, int64_t* pFe
                 LogPrintf ("Masternode payments is disabled at height:%d\n", nHeight);
                 hasPayment = false;
             }
-                
+
             if(!masternodePayments.GetBlockPayee(pindexPrev->nHeight+1, payee, vin)){
                 CMasternode* winningNode = mnodeman.GetCurrentMasterNode(1);
                 if(winningNode){
@@ -405,14 +405,14 @@ CBlock* CreateNewBlock(CReserveKey& reservekey, bool fProofOfStake, int64_t* pFe
 
                 pblock->vtx[0].vout[2].scriptPubKey = payee;
                 pblock->vtx[0].vout[2].nValue = 0;
-        
+
                 pblock->vtx[0].vout[1].scriptPubKey = payeerewardaddress;
-                pblock->vtx[0].vout[1].nValue = 0;        
+                pblock->vtx[0].vout[1].nValue = 0;
 
                 CTxDestination address1;
                 ExtractDestination(payee, address1);
                 CFriendshipCoincoinAddress address2(address1);
-        
+
                 CTxDestination address3;
                 ExtractDestination(payeerewardaddress, address3);
                 CFriendshipCoincoinAddress address4(address3);
@@ -424,7 +424,7 @@ CBlock* CreateNewBlock(CReserveKey& reservekey, bool fProofOfStake, int64_t* pFe
             /*int64_t masternodePayment = GetMasternodePayment(pindexPrev->nHeight+1, blockValue);
 
             // Set output amount
-            
+
             if(payments == 2) // masternode payment, no reward split
             {
                 pblock->vtx[0].vout[1].nValue = masternodePayment;
@@ -441,7 +441,7 @@ CBlock* CreateNewBlock(CReserveKey& reservekey, bool fProofOfStake, int64_t* pFe
             pblock->vtx[0].vout[0].nValue = blockValue;
             //pblocktemplate->vTxFees[0] = -nFees;
         }
-        
+
         if (pFees)
             *pFees = nFees;
 
@@ -615,7 +615,7 @@ void ThreadStakeMiner(CWallet *pwallet)
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
 
     // Make this thread recognisable as the mining thread
-    RenameThread("crop-miner");
+    RenameThread("fsc-miner");
 
     CReserveKey reservekey(pwallet);
 

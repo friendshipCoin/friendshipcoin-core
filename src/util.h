@@ -277,7 +277,7 @@ void runCommand(std::string strCommand);
 bool ParseInt32(const std::string& str, int32_t *out);
 
 
-/** 
+/**
  * Format a paragraph of text to a fixed width, adding spaces for
  * indentation to any added line.
  */
@@ -597,7 +597,7 @@ inline uint32_t ByteReverse(uint32_t value)
 //    threadGroup.create_thread(boost::bind(&LoopForever<boost::function<void()> >, "nothing", f, milliseconds));
 template <typename Callable> void LoopForever(const char* name,  Callable func, int64_t msecs)
 {
-    std::string s = strprintf("crop-%s", name);
+    std::string s = strprintf("fsc-%s", name);
     RenameThread(s.c_str());
     LogPrintf("%s thread start\n", name);
     try
@@ -623,7 +623,7 @@ template <typename Callable> void LoopForever(const char* name,  Callable func, 
 // .. and a wrapper that just calls func once
 template <typename Callable> void TraceThread(const char* name,  Callable func)
 {
-    std::string s = strprintf("crop-%s", name);
+    std::string s = strprintf("fsc-%s", name);
     RenameThread(s.c_str());
     try
     {

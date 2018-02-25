@@ -111,7 +111,7 @@ void Shutdown()
     TRY_LOCK(cs_Shutdown, lockShutdown);
     if (!lockShutdown) return;
 
-    RenameThread("crop-shutoff");
+    RenameThread("fsc-shutoff");
     mempool.AddTransactionsUpdated(1);
     StopRPCThreads();
     SecureMsgShutdown();
@@ -188,7 +188,7 @@ std::string HelpMessage()
 {
     string strUsage = _("Options:") + "\n";
     strUsage += "  -?                     " + _("This help message") + "\n";
-    strUsage += "  -conf=<file>           " + _("Specify configuration file (default: crop.conf)") + "\n";
+    strUsage += "  -conf=<file>           " + _("Specify configuration file (default: friendshipcoin.conf)") + "\n";
     strUsage += "  -pid=<file>            " + _("Specify pid file (default: friendshipcoind.pid)") + "\n";
     strUsage += "  -datadir=<dir>         " + _("Specify data directory") + "\n";
     strUsage += "  -wallet=<dir>          " + _("Specify wallet file (within data directory)") + "\n";
@@ -292,7 +292,7 @@ strUsage += "\n" + _("Masternode options:") + "\n";
     strUsage += "\n" + _("Darksend options:") + "\n";
     strUsage += "  -enabledarksend=<n>          " + _("Enable use of automated darksend for funds stored in this wallet (0-1, default: 0)") + "\n";
     strUsage += "  -darksendrounds=<n>          " + _("Use N separate masternodes to anonymize funds  (2-8, default: 2)") + "\n";
-    strUsage += "  -anonymizecropamount=<n> " + _("Keep N FriendshipCoin anonymized (default: 0)") + "\n";
+    strUsage += "  -anonymizefscamount=<n> " + _("Keep N FriendshipCoin anonymized (default: 0)") + "\n";
     strUsage += "  -liquidityprovider=<n>       " + _("Provide liquidity to Darksend by infrequently mixing coins on a continual basis (0-100, default: 0, 1=very frequent, high fees, 100=very infrequent, low fees)") + "\n";
 
     strUsage += "\n" + _("InstantX options:") + "\n";
@@ -1047,7 +1047,7 @@ bool AppInit2(boost::thread_group& threadGroup)
         nDarksendRounds = 99999;
     }
 
-    nAnonymizeFriendshipCoinAmount = GetArg("-anonymizecropamount", 0);
+    nAnonymizeFriendshipCoinAmount = GetArg("-anonymizefscamount", 0);
     if(nAnonymizeFriendshipCoinAmount > 999999) nAnonymizeFriendshipCoinAmount = 999999;
     if(nAnonymizeFriendshipCoinAmount < 2) nAnonymizeFriendshipCoinAmount = 2;
 

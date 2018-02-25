@@ -3230,7 +3230,7 @@ struct CImportingNow
 
 void ThreadImport(std::vector<boost::filesystem::path> vImportFiles)
 {
-    RenameThread("crop-loadblk");
+    RenameThread("fsc-loadblk");
 
     CImportingNow imp;
 

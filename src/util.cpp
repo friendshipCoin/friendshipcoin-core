@@ -1041,7 +1041,7 @@ static std::string FormatException(std::exception* pex, const char* pszThread)
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "crop";
+    const char* pszModule = "fsc";
 #endif
     if (pex)
         return strprintf(
@@ -1230,7 +1230,7 @@ std::string getTimeString(int64_t timestamp, char *buffer, size_t nBuffer)
     struct tm* dt;
     time_t t = timestamp;
     dt = localtime(&t);
-    
+
     strftime(buffer, nBuffer, "%Y-%m-%d %H:%M:%S %z", dt); // %Z shows long strings on windows
     return std::string(buffer); // copies the null-terminated character sequence
 };
@@ -1245,7 +1245,7 @@ std::string bytesReadable(uint64_t nBytes)
         return strprintf("%.2f MB", nBytes/1024.0/1024.0);
     if (nBytes >= 1024)
         return strprintf("%.2f KB", nBytes/1024.0);
-    
+
     return strprintf("%d B", nBytes);
 };
 

@@ -136,8 +136,8 @@ Value validateaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "validateaddress <cropaddress>\n"
-            "Return information about <cropaddress>.");
+            "validateaddress <fscaddress>\n"
+            "Return information about <fscaddress>.");
 
     CFriendshipCoincoinAddress address(params[0].get_str());
     bool isValid = address.IsValid();
@@ -168,8 +168,8 @@ Value validatepubkey(const Array& params, bool fHelp)
 {
     if (fHelp || !params.size() || params.size() > 2)
         throw runtime_error(
-            "validatepubkey <croppubkey>\n"
-            "Return information about <croppubkey>.");
+            "validatepubkey <fscpubkey>\n"
+            "Return information about <fscpubkey>.");
 
     std::vector<unsigned char> vchPubKey = ParseHex(params[0].get_str());
     CPubKey pubKey(vchPubKey);
@@ -208,7 +208,7 @@ Value verifymessage(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 3)
         throw runtime_error(
-            "verifymessage <cropaddress> <signature> <message>\n"
+            "verifymessage <fscaddress> <signature> <message>\n"
             "Verify a signed message");
 
     string strAddress  = params[0].get_str();
@@ -278,4 +278,3 @@ Value spork(const Array& params, bool fHelp)
         "<value> is a epoch datetime to enable or disable spork"
         + HelpRequiringPassphrase());
 }
-
