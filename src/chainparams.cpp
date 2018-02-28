@@ -82,7 +82,7 @@ public:
         genesis.nVersion = 1;
         genesis.nTime    = 1519845939;
         genesis.nBits    = 0x1e0fffff;
-        genesis.nNonce   = 1604194;
+        genesis.nNonce   = 0;
 
         hashGenesisBlock = genesis.GetHash();
 
