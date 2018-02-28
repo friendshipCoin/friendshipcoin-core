@@ -64,19 +64,9 @@ public:
         vAlertPubKey = ParseHex("0323740193a8560083f057e3bf354ce8b5739d4242cd9992d1fb95ebe9d0c626cd");
         nDefaultPort = 58008;
         nRPCPort = 58009;
-        //bnProofOfWorkLimit = CBigNum(~uint256(0) >> 16);
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 20);
 
-        // Build the genesis block. Note that the output of the genesis coinbase cannot
-        // be spent as it did not originally exist in the database.
-        //
-        //CBlock(hash=000001faef25dec4fbcf906e6242621df2c183bf232f263d0ba5b101911e4563, ver=1, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=12630d16a97f24b287c8c2594dda5fb98c9e6c70fc61d44191931ea2aa08dc90, nTime=1393221600, nBits=1e0fffff, nNonce=164482, vtx=1, vchBlockSig=)
-        //  Coinbase(hash=12630d16a9, nTime=1393221600, ver=1, vin.size=1, vout.size=1, nLockTime=0)
-        //    CTxIn(COutPoint(0000000000, 4294967295), coinbase 00012a24323020466562203230313420426974636f696e2041544d7320636f6d6520746f20555341)
-        //    CTxOut(empty)
-        //  vMerkleTree: 12630d16a9
         const char* pszTimestamp = "It's time to get friendly!";
-
 
         std::vector<CTxIn> vin;
         vin.resize(1);
@@ -96,8 +86,33 @@ public:
 
         hashGenesisBlock = genesis.GetHash();
 
-        assert(hashGenesisBlock == uint256("0x00000d3880ad17102351d51f8c809fe0f3df13cd838e36a6c01ae3296bb22e13"));
-        assert(genesis.hashMerkleRoot == uint256("0x73493cadda0b9042bae383208bccc06c47c46892ba8feea5d831d358eb1626d4"));
+        //assert(hashGenesisBlock == uint256("0x00000d3880ad17102351d51f8c809fe0f3df13cd838e36a6c01ae3296bb22e13"));
+        //assert(genesis.hashMerkleRoot == uint256("0x73493cadda0b9042bae383208bccc06c47c46892ba8feea5d831d358eb1626d4"));
+
+        // START genesis block code
+        uint256 hashTarget = CBigNum().SetCompact(genesis.nBits).getuint256();
+        uint256 thash;
+        unsigned int profile = 0x0;
+
+        while(true){
+            neoscrypt((unsigned char *) &genesis.nVersion, (unsigned char *) &thash, profile);
+            if (thash <= hashTarget) break;
+
+            if ((genesis.nNonce & 0xFFF) == 0){
+                printf("nonce %08X: hash = %s (target = %s)\n", genesis.nNonce, thash.ToString().c_str(), hashTarget.ToString().c_str());}
+
+            ++genesis.nNonce;
+            if (genesis.nNonce == 0){
+            printf("NONCE WRAPPED, incrementing time\n");
+            ++genesis.nTime;}
+        }
+
+        printf("genesis.nTime = %u \n", genesis.nTime);
+        printf("genesis.nNonce = %u \n", genesis.nNonce);
+        printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+        printf("genesis.MerkleRoot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
+        exit(0);
+        // END genesis block code
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,95);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,35);
@@ -111,8 +126,6 @@ public:
         convertSeeds(vFixedSeeds, pnSeed, ARRAYLEN(pnSeed), nDefaultPort);
 
         nPoolMaxTransactions = 3;
-        //strSporkKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
-        //strMasternodePaymentsPubKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
         strDarksendPoolDummyAddress = "f25gtaAQYBUNjYrxzZqNdyADSmwPPpWoLC";
         nLastPOWBlock = 20000;
         nPOSStartBlock = 1;
