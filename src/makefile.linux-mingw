@@ -1,11 +1,12 @@
+#Makefile:
 # Copyright (c) 2009-2010 Satoshi Nakamoto
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-TARGET_PLATFORM:=i686
-#TARGET_PLATFORM:=x86_64
+#TARGET_PLATFORM:=i686
+TARGET_PLATFORM:=x86_64
 
-DEPSDIR:=/usr/$(TARGET_PLATFORM)-w64-mingw32
+DEPSDIR:=$(CURDIR)/depends/$(TARGET_PLATFORM)-w64-mingw32
 CC:=$(TARGET_PLATFORM)-w64-mingw32-gcc
 CXX:=$(TARGET_PLATFORM)-w64-mingw32-g++
 RANLIB=$(TARGET_PLATFORM)-w64-mingw32-ranlib
@@ -17,23 +18,21 @@ USE_LOWMEM:=0
 
 INCLUDEPATHS= \
  -I"$(CURDIR)" \
+ -I"$(CURDIR)/secp256k1/include" \
  -I"$(CURDIR)"/obj \
- -I"$(DEPSDIR)/boost_1_55_0" \
- -I"$(DEPSDIR)/db-6.0.20/build_unix" \
- -I"$(DEPSDIR)/openssl-1.0.1f/include" \
- -I"$(DEPSDIR)"
+ -I"$(DEPSDIR)" \
+ -I"$(DEPSDIR)/include" \
 
 LIBPATHS= \
- -L"$(DEPSDIR)/boost_1_55_0/stage/lib" \
- -L"$(DEPSDIR)/db-6.0.20/build_unix" \
- -L"$(DEPSDIR)/openssl-1.0.1f"
+ -L"$(DEPSDIR)/lib" \
+ -L"$(CURDIR)/secp256k1/.libs"
 
 LIBS= \
- -l boost_system-mt \
- -l boost_filesystem-mt \
- -l boost_program_options-mt \
- -l boost_thread_win32-mt \
- -l boost_chrono-mt \
+ -l boost_system-mt-s \
+ -l boost_filesystem-mt-s \
+ -l boost_program_options-mt-s \
+ -l boost_thread_win32-mt-s \
+ -l boost_chrono-mt-s \
  -l db_cxx \
  -l ssl \
  -l crypto \
@@ -44,14 +43,14 @@ DEBUGFLAGS=-g
 CFLAGS=-O2 -msse2 -w -Wall -Wextra -Wno-ignored-qualifiers -Wformat -Wformat-security -Wno-unused-parameter $(DEBUGFLAGS) $(DEFS) $(INCLUDEPATHS)
 LDFLAGS=-Wl,--dynamicbase -Wl,--nxcompat -static-libgcc -static-libstdc++
 
-ifndef USE_UPNP
-	override USE_UPNP = -
-endif
-ifneq (${USE_UPNP}, -)
-	LIBPATHS += -L"$(DEPSDIR)/miniupnpc"
-	LIBS += -l miniupnpc -l iphlpapi
-	DEFS += -DSTATICLIB -DUSE_UPNP=$(USE_UPNP)
-endif
+#ifndef USE_UPNP
+#	override USE_UPNP = -
+#endif
+#ifneq (${USE_UPNP}, -)
+#	LIBPATHS += -L"$(DEPSDIR)/miniupnpc"
+#	LIBS += -l miniupnpc -l iphlpapi
+#	DEFS += -DSTATICLIB -DUSE_UPNP=$(USE_UPNP)
+#endif
 
 ifeq (${USE_LOWMEM}, 1)
     DEFS += -DLOWMEM
@@ -133,6 +132,8 @@ endif
 
 all: friendshipcoind.exe
 
+friendshipcoind.exe: secp256k1/src/libsecp256k1_la-secp256k1.o
+
 LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a
 DEFS += -I"$(CURDIR)/leveldb/include"
 DEFS += -I"$(CURDIR)/leveldb/helpers"
@@ -144,9 +145,11 @@ obj/txdb-leveldb.o: leveldb/libleveldb.a
 obj/%.o: %.cpp $(HEADERS)
 	$(CXX) -c $(CFLAGS) -o $@ $<
 
+obj/%.o: %.c $(HEADERS)
+	$(CC) -c $(CFLAGS) -o $@ $<
+
 friendshipcoind.exe: $(OBJS:obj/%=obj/%)
 	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS) -lshlwapi
-	$(STRIP) friendshipcoind.exe
 
 clean:
 	-rm -f obj/*.o
