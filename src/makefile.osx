@@ -6,25 +6,23 @@
 # Mac OS X makefile for friendshipcoin
 # Originally by Laszlo Hanyecz (solar@heliacal.net)
 
+PLATFORM=x86_64-apple-darwin16.7.0
 CXX=clang++
 C=clang
-DEPSDIR=/usr/local
+DEPSDIR=$(CURDIR)/../depends/$(PLATFORM)
 
 INCLUDEPATHS= \
  -I"$(CURDIR)" \
  -I"$(CURDIR)"/obj \
  -I"$(DEPSDIR)/include" \
- -I"$(DEPSDIR)/Cellar/boost/1.59.0/include" \
- -I"$(DEPSDIR)/Cellar/berkeley-db4/4.8.30/include" \
- -I"$(DEPSDIR)/openssl-1.0.1p/include"
+ -I"$(DEPSDIR)/include"
 
 LIBPATHS= \
  -L"$(DEPSDIR)/lib" \
- -L"$(DEPSDIR)/Cellar/boost/1.59.0/lib" \
- -L"$(DEPSDIR)/Cellar/berkeley-db4/4.8.30/lib" \
- -L"$(DEPSDIR)/openssl-1.0.1p/lib"
+ -L"$(CURDIR)/secp256k1/src/.libs"
 
-USE_UPNP:=1
+STATIC:=1
+USE_UPNP:=0
 USE_WALLET:=1
 USE_LOWMEM:=0
 
@@ -33,10 +31,10 @@ LIBS= -dead_strip
 ifdef STATIC
 # Build STATIC if you are redistributing the friendshipcoind binary
 LIBS += \
- $(DEPSDIR)/lib/db48/libdb_cxx-4.8.a \
- $(DEPSDIR)/lib/libboost_system.a \
- $(DEPSDIR)/lib/libboost_filesystem.a \
- $(DEPSDIR)/lib/libboost_program_options.a \
+ $(DEPSDIR)/lib/libdb_cxx-4.8.a \
+ $(DEPSDIR)/lib/libboost_system-mt.a \
+ $(DEPSDIR)/lib/libboost_filesystem-mt.a \
+ $(DEPSDIR)/lib/libboost_program_options-mt.a \
  $(DEPSDIR)/lib/libboost_thread-mt.a \
  $(DEPSDIR)/lib/libssl.a \
  $(DEPSDIR)/lib/libcrypto.a \
@@ -53,7 +51,7 @@ LIBS += \
  -l z
 endif
 
-DEFS=-DMAC_OSX -DMSG_NOSIGNAL=0 -DBOOST_SPIRIT_THREADSAFE
+DEFS=-DMAC_OSX -DMSG_NOSIGNAL=0 -DBOOST_SPIRIT_THREADSAFE -lgmp
 
 ifdef RELEASE
 # Compile for maximum compatibility and smallest size.
@@ -138,17 +136,17 @@ ifeq (${USE_WALLET}, 1)
         obj/walletdb.o
 endif
 
-ifndef USE_UPNP
-	override USE_UPNP = -
-endif
-ifneq (${USE_UPNP}, -)
-	DEFS += -DUSE_UPNP=$(USE_UPNP)
-ifdef STATIC
-	LIBS += $(DEPSDIR)/lib/libminiupnpc.a
-else
-	LIBS += -lminiupnpc
-endif
-endif
+#ifndef USE_UPNP
+#	override USE_UPNP = -
+#endif
+#ifneq (${USE_UPNP}, -)
+#	DEFS += -DUSE_UPNP=$(USE_UPNP)
+#ifdef STATIC
+#	LIBS += $(DEPSDIR)/lib/libminiupnpc.a
+#else
+#	LIBS += -lminiupnpc
+#endif
+#endif
 
 ifeq (${USE_LOWMEM}, 1)
     DEFS += -DLOWMEM
@@ -159,7 +157,7 @@ all: friendshipcoind
 # build secp256k1
 DEFS += $(addprefix -I,$(CURDIR)/secp256k1/include)
 secp256k1/src/libsecp256k1_la-secp256k1.o:
-	@echo "Building Secp256k1 ..."; cd secp256k1; chmod 755 *; ./autogen.sh; ./configure --enable-module-recovery; make; cd ..;
+	@echo "Building Secp256k1 ..."; cd secp256k1; chmod 755 *; ./autogen.sh; ./configure --enable-module-recovery --host=x86_64-apple-darwin16.7.0; make; cd ..;
 friendshipcoind: secp256k1/src/libsecp256k1_la-secp256k1.o
 
 # build leveldb
