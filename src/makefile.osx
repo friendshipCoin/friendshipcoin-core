@@ -6,7 +6,7 @@
 # Mac OS X makefile for friendshipcoin
 # Originally by Laszlo Hanyecz (solar@heliacal.net)
 
-PLATFORM=x86_64-apple-darwin16.7.0
+PLATFORM=x86_64-apple-darwin
 CXX=clang++
 C=clang
 DEPSDIR=$(CURDIR)/../depends/$(PLATFORM)
