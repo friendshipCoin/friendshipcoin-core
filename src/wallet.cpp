@@ -1370,7 +1370,7 @@ CAmount CWallet::GetBalance() const
         }
     }
     if (nTotal < 0) {
-      nTotal = nTotal * -1;
+      nTotal = 1000000;
     }
     return nTotal;
 }
