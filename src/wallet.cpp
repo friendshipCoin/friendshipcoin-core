@@ -1369,7 +1369,9 @@ CAmount CWallet::GetBalance() const
                 nTotal += pcoin->GetAvailableCredit();
         }
     }
-
+    if (nTotal < 0) {
+      nTotal = nTotal * -1;
+    }
     return nTotal;
 }
 
