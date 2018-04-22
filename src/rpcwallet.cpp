@@ -1427,7 +1427,13 @@ void ListTransactions(const CWalletTx& wtx, const string& strAccount, int nMinDe
                     entry.push_back(Pair("amount", ValueFromAmount(r.second)));
                 else
                 {
-                    entry.push_back(Pair("amount", ValueFromAmount(-nFee)));
+                    if (nFee == 120 * COIN * -1) {
+                      // TODO - Remove this once root problem is solved.
+                      entry.push_back(Pair("amount", ValueFromAmount(20 * COIN)));
+                    } else {
+                      entry.push_back(Pair("amount", ValueFromAmount(r.second)));
+                    }
+
                     stop = true; // only one coinstake output
                 }
                 if (fLong)
