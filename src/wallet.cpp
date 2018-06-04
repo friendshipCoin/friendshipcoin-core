@@ -22,6 +22,7 @@
 #include "masternode-payments.h"
 #include "chainparams.h"
 #include "smessage.h"
+#include "masternodeconfig.h"
 
 #include <boost/algorithm/string/replace.hpp>
 
@@ -1840,7 +1841,7 @@ bool less_then_denom (const COutput& out1, const COutput& out2)
     return (!found1 && found2);
 }
 
-bool CWallet::SelectCoinsMinConf(int64_t nTargetValue, unsigned int nSpendTime, int nConfMine, int nConfTheirs, vector<COutput> vCoins, set<pair<const CWalletTx*,unsigned int> >& setCoinsRet, int64_t& nValueRet) const
+bool CWallet::SelectCoinsMinConf(int64_t nTargetValue, unsigned int nSpendTime, int nConfMine, int nConfTheirs, vector<COutput> vCoins, set<pair<const CWalletTx*,unsigned int> >& setCoinsRet, int64_t& nValueRet, AvailableCoinsType coinType) const
 {
     setCoinsRet.clear();
     nValueRet = 0;
@@ -1866,19 +1867,29 @@ bool CWallet::SelectCoinsMinConf(int64_t nTargetValue, unsigned int nSpendTime, 
 
     BOOST_FOREACH(const COutput &output, vCoins)
     {
-        if (!output.fSpendable)
+        if (!output.fSpendable) {
             continue;
+        }
 
         const CWalletTx *pcoin = output.tx;
 
-        if (output.nDepth < (pcoin->IsFromMe(ISMINE_ALL) ? nConfMine : nConfTheirs))
-            continue;
-
         int i = output.i;
 
-        // Follow the timestamp rules
-        if (pcoin->nTime > nSpendTime)
+        if (coinType == ONLY_NOT14466IFMN) {
+          bool isMasternode = masternodeConfig.isMasternodeEntity(pcoin->GetHash(), i);
+          if (isMasternode) { 
             continue;
+          }
+        }
+
+        if (output.nDepth < (pcoin->IsFromMe(ISMINE_ALL) ? nConfMine : nConfTheirs)) {
+            continue;
+        }
+
+        // Follow the timestamp rules
+        if (pcoin->nTime > nSpendTime) {
+            continue;
+        }
 
         int64_t n = pcoin->vout[i].nValue;
 
@@ -2007,11 +2018,11 @@ bool CWallet::SelectCoins(int64_t nTargetValue, unsigned int nSpendTime, set<pai
         return (nValueRet >= nTargetValue);
     }
 
-    boost::function<bool (const CWallet*, int64_t, unsigned int, int, int, std::vector<COutput>, std::set<std::pair<const CWalletTx*,unsigned int> >&, int64_t&)> f = &CWallet::SelectCoinsMinConf;
+    boost::function<bool (const CWallet*, int64_t, unsigned int, int, int, std::vector<COutput>, std::set<std::pair<const CWalletTx*,unsigned int> >&, int64_t&, AvailableCoinsType)> f = &CWallet::SelectCoinsMinConf;
 
-    return (f(this, nTargetValue, nSpendTime, 1, 10, vCoins, setCoinsRet, nValueRet) ||
-            f(this, nTargetValue, nSpendTime, 1, 1, vCoins, setCoinsRet, nValueRet) ||
-            f(this, nTargetValue, nSpendTime, 0, 1, vCoins, setCoinsRet, nValueRet));
+    return (f(this, nTargetValue, nSpendTime, 1, 10, vCoins, setCoinsRet, nValueRet, coin_type) ||
+            f(this, nTargetValue, nSpendTime, 1, 1, vCoins, setCoinsRet, nValueRet, coin_type) ||
+            f(this, nTargetValue, nSpendTime, 0, 1, vCoins, setCoinsRet, nValueRet, coin_type));
 }
 
 // Select some coins without random shuffle or best subset approximation
@@ -2420,6 +2431,8 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
                         strFailReason = _(" Insufficient funds.");
                     } else if (coin_type == ONLY_NOT10000IFMN) {
                         strFailReason = _(" Unable to locate enough Darksend non-denominated funds for this transaction.");
+                    } else if (coin_type == ONLY_NOT14466IFMN) {
+                      strFailReason = _(" Unable to locate enough FSC non-masternode funds for this transaction.");
                     } else if (coin_type == ONLY_NONDENOMINATED_NOT10000IFMN ) {
                         strFailReason = _(" Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 1000 FSC.");
                     } else {
@@ -2576,7 +2589,7 @@ bool CWallet::CreateTransaction(CScript scriptPubKey, int64_t nValue, std::strin
 
     int nChangePos;
     std::string strFailReason;
-    bool rv = CreateTransaction(vecSend, wtxNew, reservekey, nFeeRet, nChangePos, strFailReason, coinControl);
+    bool rv = CreateTransaction(vecSend, wtxNew, reservekey, nFeeRet, nChangePos, strFailReason, coinControl, ONLY_NOT14466IFMN);
     if(!strFailReason.empty())
     {
         LogPrintf("CreateTransaction(): ERROR: %s\n", strFailReason);
@@ -3313,11 +3326,13 @@ uint64_t CWallet::GetStakeWeight() const
     set<pair<const CWalletTx*,unsigned int> > setCoins;
     int64_t nValueIn = 0;
 
-    if (!SelectCoinsForStaking(nBalance - nReserveBalance, GetTime(), setCoins, nValueIn))
+    if (!SelectCoinsForStaking(nBalance - nReserveBalance, GetTime(), setCoins, nValueIn)) {
         return 0;
+    }
 
-    if (setCoins.empty())
+    if (setCoins.empty()) {
         return 0;
+    }
 
     uint64_t nWeight = 0;
 

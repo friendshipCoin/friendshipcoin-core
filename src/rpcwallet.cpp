@@ -443,13 +443,15 @@ Value sendtoaddress(const Array& params, bool fHelp)
 
     EnsureWalletIsUnlocked();
 
-    if (params[0].get_str().length() > 75
-        && IsStealthAddress(params[0].get_str()))
+    if (params[0].get_str().length() > 75 
+        && IsStealthAddress(params[0].get_str())) {
         return sendtostealthaddress(params, false);
+    }
 
     CFriendshipCoincoinAddress address(params[0].get_str());
-    if (!address.IsValid())
+    if (!address.IsValid()) {
         throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid FriendshipCoin address");
+    }
 
     // Amount
     CAmount nAmount = AmountFromValue(params[1]);
@@ -458,19 +460,25 @@ Value sendtoaddress(const Array& params, bool fHelp)
     std::string sNarr;
 
     // Wallet comments
-    if (params.size() > 2 && params[2].type() != null_type && !params[2].get_str().empty())
+    if (params.size() > 2 && params[2].type() != null_type && !params[2].get_str().empty()) {
         wtx.mapValue["comment"] = params[2].get_str();
-    if (params.size() > 3 && params[3].type() != null_type && !params[3].get_str().empty())
+    }
+    if (params.size() > 3 && params[3].type() != null_type && !params[3].get_str().empty()) {
         wtx.mapValue["to"]      = params[3].get_str();
-    if (params.size() > 4 && params[4].type() != null_type && !params[4].get_str().empty())
+    }
+    if (params.size() > 4 && params[4].type() != null_type && !params[4].get_str().empty()) {
         sNarr = params[4].get_str();
-    if (sNarr.length() > 24)
+    }
+    if (sNarr.length() > 24) {
         throw std::runtime_error("Narration must be 24 characters or less.");
+    }
 
-    std::string strError = pwalletMain->SendMoneyToDestination(address.Get(), nAmount, sNarr, wtx);
+    std::string strError = pwalletMain->SendMoneyToDestination(address.Get(),
+        nAmount, sNarr, wtx);
 
-    if (strError != "")
+    if (strError != "") {
         throw JSONRPCError(RPC_WALLET_ERROR, strError);
+    }
 
     return wtx.GetHash().GetHex();
 }

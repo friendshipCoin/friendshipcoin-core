@@ -98,6 +98,7 @@ public:
     void clear();
     bool read(boost::filesystem::path path);
     void add(std::string alias, std::string ip, std::string privKey, std::string txHash, std::string outputIndex, std::string rewardAddress, std::string rewardPercent);
+    bool isMasternodeEntity(uint256 txid, int outputIndex);
 
     std::vector<CMasternodeEntry>& getEntries() {
         return entries;
