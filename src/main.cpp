@@ -23,6 +23,7 @@
 #include "spork.h"
 #include "smessage.h"
 #include "util.h"
+#include "pos.h"
 
 #include <boost/algorithm/string/replace.hpp>
 #include <boost/filesystem.hpp>

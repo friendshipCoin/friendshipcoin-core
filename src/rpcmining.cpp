@@ -11,6 +11,7 @@
 #include "init.h"
 #include "miner.h"
 #include "kernel.h"
+#include "pos.h"
 
 #include <boost/assign/list_of.hpp>
 

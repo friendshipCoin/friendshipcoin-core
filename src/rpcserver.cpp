@@ -12,6 +12,7 @@
 #include "base58.h"
 #include "db.h"
 #include "ui_interface.h"
+#include "pos.h"
 #ifdef ENABLE_WALLET
 #include "wallet.h"
 #endif

@@ -126,6 +126,7 @@ OBJS= \
     obj/core.o \
     obj/main.o \
     obj/net.o \
+		obj/pos.o \
     obj/protocol.o \
     obj/rpcclient.o \
     obj/rpcprotocol.o \

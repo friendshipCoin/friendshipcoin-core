@@ -9,6 +9,7 @@
 #include "kernel.h"
 #include "masternodeman.h"
 #include "masternode-payments.h"
+#include "pos.h"
 
 using namespace std;
 
