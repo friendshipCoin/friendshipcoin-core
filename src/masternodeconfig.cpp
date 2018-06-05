@@ -2,6 +2,7 @@
 #include "masternodeconfig.h"
 #include "util.h"
 #include <base58.h>
+#include <boost/lexical_cast.hpp>
 
 CMasternodeConfig masternodeConfig;
 
@@ -56,4 +57,22 @@ bool CMasternodeConfig::read(boost::filesystem::path path) {
 
     streamConfig.close();
     return true;
+}
+
+bool CMasternodeConfig::isMasternodeEntity(uint256 txid, int outputIndex) {
+  for (auto it = entries.begin(); it != entries.end(); ++it) {
+    auto entry = *it;
+
+    auto strTxHash = entry.getTxHash();
+    uint256 txHash(strTxHash);
+
+    auto strOutputIndex = entry.getOutputIndex();
+    int eIndex = boost::lexical_cast<int>(strOutputIndex);
+
+    if (txid == txHash && outputIndex == eIndex) {
+      return true;
+    }
+  }
+
+  return false;
 }
