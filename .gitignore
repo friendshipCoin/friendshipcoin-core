@@ -42,6 +42,9 @@ src/qt/test/moc*.cpp
 src/qt/res/.deps/
 src/qt/res/.dirstamp
 
+.deps
+.dirstamp
+.libs
 .*.swp
 *.*~*
 *.bak

@@ -7,6 +7,8 @@
 
 #include <stdint.h>
 
+#include "config/friendshipcoin-config.h"
+
 #if defined(HAVE_ENDIAN_H)
 #include <endian.h>
 #endif

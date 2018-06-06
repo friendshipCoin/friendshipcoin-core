@@ -6,6 +6,7 @@
 
 #include "compat.h"
 #include "serialize.h"
+#include "config/friendshipcoin-config.h"
 
 #include <stdint.h>
 #include <string>

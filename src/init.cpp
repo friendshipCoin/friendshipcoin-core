@@ -5,6 +5,7 @@
 
 #include "init.h"
 
+#include "config/friendshipcoin-config.h"
 #include "addrman.h"
 #include "main.h"
 #include "chainparams.h"

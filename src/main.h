@@ -12,6 +12,7 @@
 #include "net.h"
 #include "script.h"
 #include "neoscrypt.h"
+#include "config/friendshipcoin-config.h"
 
 #include <list>
 

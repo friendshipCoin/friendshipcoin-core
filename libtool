@@ -1,5 +1,5 @@
 #! /bin/sh
-# Generated automatically by config.status (bitcoin) 0.9.99
+# Generated automatically by config.status (friendshipcoincore) 0.12.2
 # Libtool was configured on host Elliotts-MBP:
 # NOTE: Changes made to this file will be lost: look at ltmain.sh.
 
@@ -41,14 +41,14 @@ available_tags='CXX '
 macro_version=2.4.6
 macro_revision=2.4.6
 
+# What type of objects to build.
+pic_mode=yes
+
 # Whether or not to build shared libraries.
 build_libtool_libs=no
 
 # Whether or not to build static libraries.
 build_old_libs=yes
-
-# What type of objects to build.
-pic_mode=default
 
 # Whether or not to optimize for fast installation.
 fast_install=needless
@@ -11668,7 +11668,7 @@ reload_cmds="\$LTCC \$LTCFLAGS -nostdlib \$wl-r -o \$output\$reload_objs"
 old_archive_cmds="\$AR \$AR_FLAGS \$oldlib\$oldobjs~\$RANLIB \$tool_oldlib"
 
 # A language specific compiler.
-CC="g++"
+CC="g++ -std=c++11"
 
 # Is the compiler the GNU compiler?
 with_gcc=yes

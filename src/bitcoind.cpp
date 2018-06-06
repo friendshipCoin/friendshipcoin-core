@@ -1,13 +1,17 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
+// Copyright (c) 2018 The Friendshipcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "rpcserver.h"
 #include "rpcclient.h"
 #include "init.h"
-#include <boost/algorithm/string/predicate.hpp>
+#include "noui.h"
 
+#include <boost/algorithm/string/predicate.hpp>
+#include <boost/filesystem.hpp>
+#include <boost/thread.hpp>
 
 void WaitForShutdown(boost::thread_group* threadGroup)
 {
@@ -125,11 +129,11 @@ bool AppInit(int argc, char* argv[])
     return fRet;
 }
 
-extern void noui_connect();
 int main(int argc, char* argv[])
 {
     bool fRet = false;
 
+    SetupEnvironment();
     // Connect bitcoind signal handlers
     noui_connect();
 

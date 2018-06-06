@@ -4,6 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include "db.h"
 #include "net.h"
+#include "config/friendshipcoin-config.h"
 #include "main.h"
 #include "addrman.h"
 #include "chainparams.h"

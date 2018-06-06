@@ -5,6 +5,8 @@
 
 #include "netbase.h"
 
+#include "config/friendshipcoin-config.h"
+
 #include "hash.h"
 #include "sync.h"
 #include "uint256.h"

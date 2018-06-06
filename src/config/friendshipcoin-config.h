@@ -1,33 +1,36 @@
 /* src/config/friendshipcoin-config.h.  Generated from friendshipcoin-config.h.in by configure.  */
 /* src/config/friendshipcoin-config.h.in.  Generated from configure.ac by autoheader.  */
 
-#ifndef BITCOIN_CONFIG_H
+#ifndef FRIENDSHIPCOIN_CONFIG_H
 
-#define BITCOIN_CONFIG_H
+#define FRIENDSHIPCOIN_CONFIG_H
 
 /* Define if building universal (internal helper macro) */
 /* #undef AC_APPLE_UNIVERSAL_BUILD */
 
 /* Version Build */
-#define CLIENT_VERSION_BUILD 0
+#define CLIENT_VERSION_BUILD 3
 
 /* Version is release */
-#define CLIENT_VERSION_IS_RELEASE false
+#define CLIENT_VERSION_IS_RELEASE true
 
 /* Major version */
 #define CLIENT_VERSION_MAJOR 0
 
 /* Minor version */
-#define CLIENT_VERSION_MINOR 9
+#define CLIENT_VERSION_MINOR 12
 
 /* Build revision */
-#define CLIENT_VERSION_REVISION 99
+#define CLIENT_VERSION_REVISION 2
 
 /* Version is release */
-#define COPYRIGHT_YEAR 2014
+#define COPYRIGHT_YEAR 2018
 
 /* Define to 1 to enable wallet functions */
 #define ENABLE_WALLET 1
+
+/* Define to 1 to enable ZMQ functions */
+#define ENABLE_ZMQ 0
 
 /* parameter and return value type for __fdelt_chk */
 /* #undef FDELT_TYPE */
@@ -53,6 +56,16 @@
 /* define if the Boost::Unit_Test_Framework library is available */
 #define HAVE_BOOST_UNIT_TEST_FRAMEWORK /**/
 
+/* Define to 1 if you have the <byteswap.h> header file. */
+/* #undef HAVE_BYTESWAP_H */
+
+/* define if the compiler supports basic C++11 syntax */
+#define HAVE_CXX11 1
+
+/* Define to 1 if you have the declaration of `be16toh', and to 0 if you
+   don't. */
+#define HAVE_DECL_BE16TOH 0
+
 /* Define to 1 if you have the declaration of `be32toh', and to 0 if you
    don't. */
 #define HAVE_DECL_BE32TOH 0
@@ -60,6 +73,22 @@
 /* Define to 1 if you have the declaration of `be64toh', and to 0 if you
    don't. */
 #define HAVE_DECL_BE64TOH 0
+
+/* Define to 1 if you have the declaration of `bswap_16', and to 0 if you
+   don't. */
+#define HAVE_DECL_BSWAP_16 0
+
+/* Define to 1 if you have the declaration of `bswap_32', and to 0 if you
+   don't. */
+#define HAVE_DECL_BSWAP_32 0
+
+/* Define to 1 if you have the declaration of `bswap_64', and to 0 if you
+   don't. */
+#define HAVE_DECL_BSWAP_64 0
+
+/* Define to 1 if you have the declaration of `htobe16', and to 0 if you
+   don't. */
+#define HAVE_DECL_HTOBE16 0
 
 /* Define to 1 if you have the declaration of `htobe32', and to 0 if you
    don't. */
@@ -69,6 +98,10 @@
    don't. */
 #define HAVE_DECL_HTOBE64 0
 
+/* Define to 1 if you have the declaration of `htole16', and to 0 if you
+   don't. */
+#define HAVE_DECL_HTOLE16 0
+
 /* Define to 1 if you have the declaration of `htole32', and to 0 if you
    don't. */
 #define HAVE_DECL_HTOLE32 0
@@ -76,6 +109,10 @@
 /* Define to 1 if you have the declaration of `htole64', and to 0 if you
    don't. */
 #define HAVE_DECL_HTOLE64 0
+
+/* Define to 1 if you have the declaration of `le16toh', and to 0 if you
+   don't. */
+#define HAVE_DECL_LE16TOH 0
 
 /* Define to 1 if you have the declaration of `le32toh', and to 0 if you
    don't. */
@@ -89,11 +126,24 @@
    don't. */
 #define HAVE_DECL_STRERROR_R 1
 
+/* Define to 1 if you have the declaration of `strnlen', and to 0 if you
+   don't. */
+#define HAVE_DECL_STRNLEN 1
+
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #define HAVE_DLFCN_H 1
 
 /* Define to 1 if you have the <endian.h> header file. */
 /* #undef HAVE_ENDIAN_H */
+
+/* Define to 1 if the system has the `dllexport' function attribute */
+/* #undef HAVE_FUNC_ATTRIBUTE_DLLEXPORT */
+
+/* Define to 1 if the system has the `dllimport' function attribute */
+/* #undef HAVE_FUNC_ATTRIBUTE_DLLIMPORT */
+
+/* Define to 1 if the system has the `visibility' function attribute */
+#define HAVE_FUNC_ATTRIBUTE_VISIBILITY 1
 
 /* Define this symbol if you have getaddrinfo_a */
 /* #undef HAVE_GETADDRINFO_A */
@@ -125,6 +175,9 @@
 /* Define to 1 if you have the `iphlpapi' library (-liphlpapi). */
 /* #undef HAVE_LIBIPHLPAPI */
 
+/* Define to 1 if you have the `jpeg ' library (-ljpeg ). */
+/* #undef HAVE_LIBJPEG_ */
+
 /* Define to 1 if you have the `kernel32' library (-lkernel32). */
 /* #undef HAVE_LIBKERNEL32 */
 
@@ -146,11 +199,17 @@
 /* Define to 1 if you have the `rpcrt4' library (-lrpcrt4). */
 /* #undef HAVE_LIBRPCRT4 */
 
+/* Define to 1 if you have the `rt' library (-lrt). */
+/* #undef HAVE_LIBRT */
+
 /* Define to 1 if you have the `shell32' library (-lshell32). */
 /* #undef HAVE_LIBSHELL32 */
 
 /* Define to 1 if you have the `shlwapi' library (-lshlwapi). */
 /* #undef HAVE_LIBSHLWAPI */
+
+/* Define to 1 if you have the `ssp' library (-lssp). */
+/* #undef HAVE_LIBSSP */
 
 /* Define to 1 if you have the `user32' library (-luser32). */
 /* #undef HAVE_LIBUSER32 */
@@ -212,6 +271,9 @@
 /* Define to 1 if you have the <string.h> header file. */
 #define HAVE_STRING_H 1
 
+/* Define to 1 if you have the <sys/endian.h> header file. */
+/* #undef HAVE_SYS_ENDIAN_H */
+
 /* Define to 1 if you have the <sys/prctl.h> header file. */
 /* #undef HAVE_SYS_PRCTL_H */
 
@@ -240,26 +302,35 @@
 #define LT_OBJDIR ".libs/"
 
 /* Define to the address where bug reports for this package should be sent. */
-#define PACKAGE_BUGREPORT "info@friendshipcoin.org"
+#define PACKAGE_BUGREPORT "https://github.com/friendshipcoin/friendshipcoin-core/issues"
 
 /* Define to the full name of this package. */
 #define PACKAGE_NAME "Friendshipcoin Core"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "Friendshipcoin Core 0.9.99"
+#define PACKAGE_STRING "Friendshipcoin Core 0.12.2"
 
 /* Define to the one symbol short name of this package. */
-#define PACKAGE_TARNAME "bitcoin"
+#define PACKAGE_TARNAME "friendshipcoincore"
 
 /* Define to the home page for this package. */
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "0.9.99"
+#define PACKAGE_VERSION "0.12.2"
 
 /* Define to necessary symbol if this constant uses a non-standard name on
    your system. */
 /* #undef PTHREAD_CREATE_JOINABLE */
+
+/* Define this symbol if the qt platform is cocoa */
+/* #undef QT_QPA_PLATFORM_COCOA */
+
+/* Define this symbol if the qt platform is windows */
+/* #undef QT_QPA_PLATFORM_WINDOWS */
+
+/* Define this symbol if the qt platform is xcb */
+/* #undef QT_QPA_PLATFORM_XCB */
 
 /* Define this symbol if qt plugins are static */
 /* #undef QT_STATICPLUGIN */
@@ -303,4 +374,4 @@
 /* Define for large files, on AIX-style hosts. */
 /* #undef _LARGE_FILES */
 
-#endif //BITCOIN_CONFIG_H
+#endif //FRIENDSHIPCOIN_CONFIG_H
