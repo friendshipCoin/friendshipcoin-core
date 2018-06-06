@@ -17,6 +17,8 @@ src/.deps/
 src/Makefile.in
 src/friendshipcoin-config.h
 src/friendshipcoin-config.h.in
+src/config/friendshipcoin-config.h
+src/config/friendshipcoin-config.h.in
 src/build-aux/
 src/qt/Makefile.in
 src/stamp-h1
