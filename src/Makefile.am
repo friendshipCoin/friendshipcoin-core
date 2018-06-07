@@ -3,28 +3,7 @@ DIST_SUBDIRS = secp256k1 leveldb
 AM_LDFLAGS = $(PTHREAD_CFLAGS) $(LIBTOOL_LDFLAGS) $(HARDENED_LDFLAGS)
 AM_CXXFLAGS = $(HARDENED_CXXFLAGS)
 AM_CPPFLAGS = $(HARDENED_CPPFLAGS)
-if EMBEDDED_LEVELDB
-AM_CPPFLAGS += -I$(top_srcdir)/src/leveldb/include
-AM_CPPFLAGS += -I$(top_srcdir)/src/leveldb/helpers
-endif
 EXTRA_LIBRARIES =
-
-if EMBEDDED_LEVELDB
-LEVELDB_CPPFLAGS += -I$(srcdir)/leveldb/include
-LEVELDB_CPPFLAGS += -I$(srcdir)/leveldb/helpers
-LIBLEVELDB += $(builddir)/leveldb/libleveldb.a
-LIBMEMENV  += $(builddir)/leveldb/libmemenv.a
-
-# NOTE: This dependency is not strictly necessary, but without it make may try to build both in parallel, which breaks the LevelDB build system in a race
-$(LIBLEVELDB): $(LIBMEMENV)
-
-$(LIBLEVELDB) $(LIBMEMENV):
-	@echo "Building LevelDB ..." && $(MAKE) -C $(@D) $(@F) CXX="$(CXX)" \
-	  CC="$(CC)" PLATFORM=$(TARGET_OS) AR="$(AR)" $(LEVELDB_TARGET_FLAGS) \
-          OPT="$(CXXFLAGS) $(CPPFLAGS) -D__STDC_LIMIT_MACROS"
-endif
-
-
 
 FRIENDSHIPCOIN_CONFIG_INCLUDES=-I$(builddir)/config
 FRIENDSHIPCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
@@ -123,3 +102,7 @@ clean-local:
 	-$(MAKE) -C secp256k1 clean 2>/dev/null
 	rm -f leveldb/port/*.gcno leveldb/db/*.gcno leveldb/table/*.gcno leveldb/helpers/*.gcno
 	rm -f leveldb/util/*.gcno leveldb/helpers/memenv/*.gcno
+
+if EMBEDDED_LEVELDB
+include Makefile.leveldb.include
+endif
