@@ -279,7 +279,7 @@ case $host in
      fi
 
      CPPFLAGS="$CPPFLAGS -D_MT -DWIN32 -D_WINDOWS -DBOOST_THREAD_USE_LIB"
-     LEVELDB_TARGET_FLAGS="-DOS_WINDOWS"
+     LEVELDB_TARGET_FLAGS="TARGET_OS=OS_WINDOWS_CROSSCOMPILE"
      if test "x$CXXFLAGS_overridden" = "xno"; then
        CXXFLAGS="$CXXFLAGS -w"
      fi
@@ -301,7 +301,7 @@ case $host in
      ;;
   *darwin*)
      TARGET_OS=darwin
-     LEVELDB_TARGET_FLAGS="-DOS_MACOSX"
+     LEVELDB_TARGET_FLAGS="TARGET_OS=Darwin"
      if  test x$cross_compiling != xyes; then
        BUILD_OS=darwin
        AC_CHECK_PROG([PORT],port, port)
@@ -364,11 +364,9 @@ case $host in
      ;;
    *linux*)
      TARGET_OS=linux
-     LEVELDB_TARGET_FLAGS="-DOS_LINUX"
      ;;
    *)
      OTHER_OS=`echo ${host_os} | awk '{print toupper($0)}'`
-     LEVELDB_TARGET_FLAGS="-DOS_${OTHER_OS}"
      ;;
 esac
 

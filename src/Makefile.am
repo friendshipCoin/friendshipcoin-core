@@ -9,6 +9,22 @@ AM_CPPFLAGS += -I$(top_srcdir)/src/leveldb/helpers
 endif
 EXTRA_LIBRARIES =
 
+if EMBEDDED_LEVELDB
+LEVELDB_CPPFLAGS += -I$(srcdir)/leveldb/include
+LEVELDB_CPPFLAGS += -I$(srcdir)/leveldb/helpers
+LIBLEVELDB += $(builddir)/leveldb/libleveldb.a
+LIBMEMENV  += $(builddir)/leveldb/libmemenv.a
+
+# NOTE: This dependency is not strictly necessary, but without it make may try to build both in parallel, which breaks the LevelDB build system in a race
+$(LIBLEVELDB): $(LIBMEMENV)
+
+$(LIBLEVELDB) $(LIBMEMENV):
+	@echo "Building LevelDB ..." && $(MAKE) -C $(@D) $(@F) CXX="$(CXX)" \
+	  CC="$(CC)" PLATFORM=$(TARGET_OS) AR="$(AR)" $(LEVELDB_TARGET_FLAGS) \
+          OPT="$(CXXFLAGS) $(CPPFLAGS) -D__STDC_LIMIT_MACROS"
+endif
+
+
 
 FRIENDSHIPCOIN_CONFIG_INCLUDES=-I$(builddir)/config
 FRIENDSHIPCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
@@ -16,20 +32,9 @@ FRIENDSHIPCOIN_INCLUDES += -I$(srcdir)/secp256k1/include
 
 LIBFRIENDSHIPCOIN=libfriendshipcoin.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
-LEVELDB_CPPFLAGS += -I$(srcdir)/leveldb/include
-LEVELDB_CPPFLAGS += -I$(srcdir)/leveldb/helpers
-LIBLEVELDB += $(builddir)/leveldb/libleveldb.a
-LIBMEMENV  += $(builddir)/leveldb/libmemenv.a
 
 secp256k1/libsecp256k1.la: $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
 	$(AM_V_at)$(MAKE) $(AM_MAKEFLAGS) -C $(@D) $(@F)
-
-# NOTE: This dependency is not strictly necessary, but without it make may try to build both in parallel, which breaks the LevelDB build system in a race
-$(LIBLEVELDB): $(LIBMEMENV)
-
-$(LIBLEVELDB) $(LIBMEMENV):
-	@echo "Building LevelDB ..."; cd leveldb; chmod 755 *; $(MAKE) $(@F); cd ..
-obj/txdb-leveldb.o: leveldb/libleveldb.a
 
 EXTRA_LIBRARIES += libfriendshipcoin.a
 
@@ -69,6 +74,8 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libfriendshipcoin_a-clientversion.$(OBJEXT): obj/build.h
 
+nodist_libfriendshipcoin_a_SOURCES = $(srcdir)/obj/build.h
+
 libfriendshipcoin_a_CPPFLAGS = $(AM_CPPFLAGS) $(FRIENDSHIPCOIN_INCLUDES) \
 															 $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) \
 															 $(EVENT_PTHREADS_CFLAGS)
@@ -90,8 +97,6 @@ libfriendshipcoin_a_SOURCES = activemasternode.cpp addrman.cpp alert.cpp \
 	darksend.cpp darksend-relay.cpp version.cpp wallet.cpp walletdb.cpp \
 	$(JSON_H) ($CRYPTO_H) $(FRIENDSHIPCOIN_CORE_H) $(SUPPORT_H)
 
-
-nodist_libfriendshipcoin_a_SOURCES = $(srcdir)/obj/build.h
 
 
 # friendshipcoind binary #
