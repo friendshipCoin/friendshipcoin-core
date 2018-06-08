@@ -58,7 +58,7 @@ nodist_libfriendshipcoin_a_SOURCES = $(srcdir)/obj/build.h
 libfriendshipcoin_a_CPPFLAGS = $(AM_CPPFLAGS) $(FRIENDSHIPCOIN_INCLUDES) \
 															 $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) \
 															 $(EVENT_PTHREADS_CFLAGS)
-libfriendshipcoin_a_CXXFLAGS = $(AM_CXXFLAGS)
+libfriendshipcoin_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 libfriendshipcoin_a_SOURCES = activemasternode.cpp addrman.cpp alert.cpp \
   allocators.cpp base58.cpp chainparams.cpp checkpoints.cpp \
@@ -67,23 +67,22 @@ libfriendshipcoin_a_SOURCES = activemasternode.cpp addrman.cpp alert.cpp \
   db.cpp ecwrapper.cpp hash.cpp init.cpp \
 	instantx.cpp kernel.cpp key.cpp keystore.cpp main.cpp \
   masternode.cpp masternodeconfig.cpp masternodeman.cpp  \
-	masternode-payments.cpp miner.cpp neoscrypt.c net.cpp netbase.cpp noui.cpp \
-  pbkdf2.cpp pos.cpp protocol.cpp pubkey.cpp rpcblockchain.cpp rpcclient.cpp \
-	rpcdarksend.cpp rpcdump.cpp rpcmining.cpp rpcmisc.cpp rpcnet.cpp \
-	rpcprotocol.cpp rpcrawtransaction.cpp rpcserver.cpp rpcsmessage.cpp \
-	rpcwallet.cpp script.cpp scrypt.cpp smessage.cpp spork.cpp stealth.cpp \
-  support/cleanse.cpp sync.cpp txdb-leveldb.cpp txmempool.cpp util.cpp \
-	darksend.cpp darksend-relay.cpp version.cpp wallet.cpp walletdb.cpp \
-	$(JSON_H) ($CRYPTO_H) $(FRIENDSHIPCOIN_CORE_H) $(SUPPORT_H)
-
-
+	masternode-payments.cpp miner.cpp neoscrypt.cpp net.cpp netbase.cpp \
+	noui.cpp pbkdf2.cpp pos.cpp protocol.cpp pubkey.cpp rpcblockchain.cpp \
+	rpcclient.cpp rpcdarksend.cpp rpcdump.cpp rpcmining.cpp rpcmisc.cpp \
+	rpcnet.cpp rpcprotocol.cpp rpcrawtransaction.cpp rpcserver.cpp \
+	rpcsmessage.cpp rpcwallet.cpp script.cpp scrypt.cpp smessage.cpp \
+	spork.cpp stealth.cpp support/cleanse.cpp sync.cpp txdb-leveldb.cpp \
+	txmempool.cpp util.cpp darksend.cpp darksend-relay.cpp version.cpp \
+	wallet.cpp walletdb.cpp $(JSON_H) ($CRYPTO_H) $(FRIENDSHIPCOIN_CORE_H) \
+	$(SUPPORT_H)
 
 # friendshipcoind binary #
 friendshipcoind_SOURCES = bitcoind.cpp
 friendshipcoind_CPPFLAGS = $(AM_CPPFLAGS) $(FRIENDSHIPCOIN_INCLUDES) \
 													 $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) \
 													 $(EVENT_PTHREADS_CFLAGS)
-friendshipcoind_CXXFLAGS = $(AM_CXXFLAGS)
+friendshipcoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 friendshipcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 friendshipcoind_LDADD = $(LIBFRIENDSHIPCOIN) $(LIBLEVELDB) $(LIBMEMENV) \
