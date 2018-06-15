@@ -51,7 +51,7 @@ obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
 	@$(top_srcdir)/share/genbuild.sh $(abs_top_builddir)/src/obj/build.h \
 	  $(abs_top_srcdir)
-libfriendshipcoin_a-clientversion.$(OBJEXT): obj/build.h
+libfriendshipcoin_a-version.$(OBJEXT): obj/build.h
 
 nodist_libfriendshipcoin_a_SOURCES = $(srcdir)/obj/build.h
 
