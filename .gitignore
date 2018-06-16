@@ -1,5 +1,6 @@
 src/secp256k1
 src/friendshipcoind
+libtool
 
 *.tar.gz
 
