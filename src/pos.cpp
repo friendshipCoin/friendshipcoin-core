@@ -98,20 +98,22 @@ int64_t GetProofOfStakeReward(const CBlockIndex* pindexPrev, int64_t nCoinAge,
 
   const int height = pindexBest->nHeight + 1;
 
-  if (height > 1 && height <= 5040) {
-    nSubsidy = 25 * COIN;
-  } else if (height > 10080 && height <= 100000) {
-    nSubsidy = 120 * COIN;
-  } else if (height > 100000 && height <= 362800) {
-    nSubsidy = 60 * COIN;
-  } else if (height > 362800 && height <= 625600) {
-    nSubsidy = 30 * COIN;
-  } else if (height > 625600 && height <= 888400) {
-    nSubsidy = 15 * COIN;
-  } else if (height > 888400 && height <= 1151200) {
-    nSubsidy = 3.75 * COIN;
-  } else {
+  if (height > 1414000) {
     nSubsidy = 1.85 * COIN;
+  } else if (height > 1151200) {
+    nSubsidy = 3.75 * COIN;
+  } else if (height > 888400) {
+    nSubsidy = 7.5 * COIN;
+  } else if (height > 625600) {
+    nSubsidy = 15 * COIN;
+  } else if (height > 362800) {
+    nSubsidy = 30 * COIN  ;
+  } else if (height > 100000) {
+    nSubsidy = 60 * COIN;
+  } else if (height > 10080) {
+    nSubsidy = 120 * COIN;
+  } else {
+    nSubsidy = 25 * COIN;
   }
 
   return nSubsidy + nFees;
