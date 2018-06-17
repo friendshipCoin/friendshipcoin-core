@@ -23,6 +23,7 @@
 #include "chainparams.h"
 #include "smessage.h"
 #include "masternodeconfig.h"
+#include "pos.h"
 
 #include <boost/algorithm/string/replace.hpp>
 

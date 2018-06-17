@@ -90,3 +90,30 @@ double GetPoWMHashPS() {
 
     return GetDifficulty() * 4294.967296 / nTargetSpacingWork;
 }
+
+// miner's coin stake reward
+int64_t GetProofOfStakeReward(const CBlockIndex* pindexPrev, int64_t nCoinAge,
+                              int64_t nFees) {
+  int64_t nSubsidy = 0 * COIN;
+
+  const int height = pindexBest->nHeight + 1;
+
+  if (height > 1 && height <= 5040) {
+    nSubsidy = 25 * COIN;
+  } else if (height > 10080 && height <= 100000) {
+    nSubsidy = 120 * COIN;
+  } else if (height > 100000 && height <= 362800) {
+    nSubsidy = 60 * COIN;
+  } else if (height > 362800 && height <= 625600) {
+    nSubsidy = 30 * COIN;
+  } else if (height > 625600 && height <= 888400) {
+    nSubsidy = 15 * COIN;
+  } else if (height > 888400 && height <= 1151200) {
+    nSubsidy = 3.75 * COIN;
+  } else {
+    nSubsidy = 1.85 * COIN;
+  }
+
+  return nSubsidy + nFees;
+}
+

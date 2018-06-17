@@ -12,6 +12,7 @@ class CBlockIndex;
 double GetDifficulty(const CBlockIndex* blockindex = nullptr);
 double GetPoSKernelPS();
 double GetPoWMHashPS();
+int64_t GetProofOfStakeReward(const CBlockIndex* pindexPrev, int64_t nCoinAge, int64_t nFees);
 
 extern int64_t nLastCoinStakeSearchInterval;
 
