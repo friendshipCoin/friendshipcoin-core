@@ -6,7 +6,7 @@
 #include "base58.h"
 #include "stealth.h"
 #include "smessage.h"
-#include "rpcserver.h"
+#include "rpc/server.h"
 #include "init.h"
 #include "net.h"
 #include "netbase.h"
