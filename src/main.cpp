@@ -23,6 +23,7 @@
 #include "spork.h"
 #include "smessage.h"
 #include "util.h"
+#include "pos.h"
 
 #include <boost/algorithm/string/replace.hpp>
 #include <boost/filesystem.hpp>
@@ -1363,26 +1364,6 @@ int64_t GetProofOfWorkReward(int nHeight, int64_t nFees)
         nSubsidy = 20 * COIN;
     } else if (nHeight > 5040 && nHeight <= 10080) {
         nSubsidy = 15 * COIN;
-    }
-
-    return nSubsidy + nFees;
-}
-
-// miner's coin stake reward
-int64_t GetProofOfStakeReward(const CBlockIndex* pindexPrev, int64_t nCoinAge, int64_t nFees)
-{
-    int64_t nSubsidy = 0 * COIN;
-
-    if (pindexBest->nHeight+1 > 1 && pindexBest->nHeight+1 <= 5040) {
-        nSubsidy = 25 * COIN;
-    }
-    else if (pindexBest->nHeight+1 > 10080 && pindexBest->nHeight+1 <= 540000)
-    {
-        nSubsidy = 120 * COIN;
-    }
-    else if (pindexBest->nHeight+1 > 540000)
-    {
-        nSubsidy = 20 * COIN;
     }
 
     return nSubsidy + nFees;

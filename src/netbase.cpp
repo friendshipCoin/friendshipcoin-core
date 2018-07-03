@@ -5,10 +5,13 @@
 
 #include "netbase.h"
 
+#include "config/friendshipcoin-config.h"
+
 #include "hash.h"
 #include "sync.h"
 #include "uint256.h"
 #include "util.h"
+#include "utilstrencodings.h"
 
 #ifndef WIN32
 #include <fcntl.h>

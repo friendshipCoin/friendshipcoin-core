@@ -6,6 +6,10 @@
 #ifndef BITCOIN_UTIL_H
 #define BITCOIN_UTIL_H
 
+#if defined(HAVE_CONFIG_H)
+#include <config/friendshipcoin-config.h>
+#endif
+
 #ifndef WIN32
 #include <sys/types.h>
 #include <sys/time.h>
@@ -78,6 +82,8 @@ typedef int64_t CAmount;
 
 // This is needed because the foreach macro can't get over the comma in pair<t1, t2>
 #define PAIRTYPE(t1, t2)    std::pair<t1, t2>
+
+void SetupEnvironment();
 
 // Align by increasing pointer, must have extra space at end of buffer
 template <size_t nBytes, typename T>
@@ -221,13 +227,11 @@ std::string SanitizeString(const std::string& str);
 std::vector<unsigned char> ParseHex(const char* psz);
 std::vector<unsigned char> ParseHex(const std::string& str);
 bool IsHex(const std::string& str);
-std::vector<unsigned char> DecodeBase64(const char* p, bool* pfInvalid = NULL);
 std::string DecodeBase64(const std::string& str);
 std::string EncodeBase64(const unsigned char* pch, size_t len);
 std::string EncodeBase64(const std::string& str);
 SecureString DecodeBase64Secure(const SecureString& input);
 SecureString EncodeBase64Secure(const SecureString& input);
-std::vector<unsigned char> DecodeBase32(const char* p, bool* pfInvalid = NULL);
 std::string DecodeBase32(const std::string& str);
 std::string EncodeBase32(const unsigned char* pch, size_t len);
 std::string EncodeBase32(const std::string& str);
@@ -266,24 +270,12 @@ std::string FormatSubVersion(const std::string& name, int nClientVersion, const 
 void AddTimeData(const CNetAddr& ip, int64_t nTime);
 void runCommand(std::string strCommand);
 
-
-
-
 /**
  * Convert string to signed 32-bit integer with strict parse error feedback.
  * @returns true if the entire string could be parsed as valid integer,
  *   false if not the entire string could be parsed or when overflow or underflow occurred.
  */
 bool ParseInt32(const std::string& str, int32_t *out);
-
-
-/**
- * Format a paragraph of text to a fixed width, adding spaces for
- * indentation to any added line.
- */
-std::string FormatParagraph(const std::string in, size_t width=79, size_t indent=0);
-
-
 
 inline std::string i64tostr(int64_t n)
 {
@@ -341,31 +333,6 @@ inline std::string leftTrim(std::string src, char chr)
         src.erase(0, pos);
 
     return src;
-}
-
-template<typename T>
-std::string HexStr(const T itbegin, const T itend, bool fSpaces=false)
-{
-    std::string rv;
-    static const char hexmap[16] = { '0', '1', '2', '3', '4', '5', '6', '7',
-                                     '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
-    rv.reserve((itend-itbegin)*3);
-    for(T it = itbegin; it < itend; ++it)
-    {
-        unsigned char val = (unsigned char)(*it);
-        if(fSpaces && it != itbegin)
-            rv.push_back(' ');
-        rv.push_back(hexmap[val>>4]);
-        rv.push_back(hexmap[val&15]);
-    }
-
-    return rv;
-}
-
-template<typename T>
-inline std::string HexStr(const T& vch, bool fSpaces=false)
-{
-    return HexStr(vch.begin(), vch.end(), fSpaces);
 }
 
 inline int64_t GetPerformanceCounter()
@@ -464,6 +431,30 @@ bool SoftSetArg(const std::string& strArg, const std::string& strValue);
 bool SoftSetBoolArg(const std::string& strArg, bool fValue);
 
 /**
+ * Format a string to be used as group of options in help messages
+ *
+ * @param message Group name (e.g. "RPC server options:")
+ * @return the formatted string
+ */
+std::string HelpMessageGroup(const std::string& message);
+
+/**
+ * Format a string to be used as option description in help messages
+ *
+ * @param option Option message (e.g. "-rpcuser=<user>")
+ * @param message Option description (e.g. "Username for JSON-RPC connections")
+ * @return the formatted string
+ */
+std::string HelpMessageOpt(const std::string& option, const std::string& message);
+
+/**
+ * Return the number of physical cores available on the current system.
+ * @note This does not count virtual cores, such as those provided by HyperThreading
+ * when boost is newer than 1.56.
+ */
+int GetNumCores();
+
+/**
  * MWC RNG of George Marsaglia
  * This is intended to be fast. It has a period of 2^59.3, though the
  * least significant 16 bits only have a period of about 2^30.1.
@@ -484,21 +475,6 @@ static inline uint32_t insecure_rand(void)
  * @param Deterministic Use a determinstic seed
  */
 void seed_insecure_rand(bool fDeterministic=false);
-
-/**
- * Timing-attack-resistant comparison.
- * Takes time proportional to length
- * of first argument.
- */
-template <typename T>
-bool TimingResistantEqual(const T& a, const T& b)
-{
-    if (b.size() == 0) return a.size() == 0;
-    size_t accumulator = a.size() ^ b.size();
-    for (size_t i = 0; i < a.size(); i++)
-        accumulator |= a[i] ^ b[i%b.size()];
-    return accumulator == 0;
-}
 
 /** Median filter over a stream of values.
  * Returns the median of the last N numbers

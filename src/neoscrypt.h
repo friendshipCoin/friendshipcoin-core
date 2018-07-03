@@ -1,12 +1,8 @@
-#if (__cplusplus)
 extern "C" {
-#endif
-
-void neoscrypt(const unsigned char *input, unsigned char *output, unsigned int profile);
-
-#if (__cplusplus)
+void neoscrypt(const unsigned char *input, 
+               unsigned char *output,
+               unsigned int profile);
 }
-#endif
 
 #define SCRYPT_BLOCK_SIZE 64
 #define SCRYPT_HASH_BLOCK_SIZE 64

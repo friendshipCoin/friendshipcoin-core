@@ -12,6 +12,7 @@
 #include "net.h"
 #include "script.h"
 #include "neoscrypt.h"
+#include "config/friendshipcoin-config.h"
 
 #include <list>
 
@@ -92,7 +93,6 @@ extern uint256 hashBestChain;
 extern CBlockIndex* pindexBest;
 extern uint64_t nLastBlockTx;
 extern uint64_t nLastBlockSize;
-extern int64_t nLastCoinStakeSearchInterval;
 extern const std::string strMessageMagic;
 extern int64_t nTimeBestReceived;
 extern bool fImporting;
@@ -149,7 +149,6 @@ void ThreadImport(std::vector<boost::filesystem::path> vImportFiles);
 bool CheckProofOfWork(uint256 hash, unsigned int nBits);
 unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast, bool fProofOfStake);
 int64_t GetProofOfWorkReward(int nHeight, int64_t nFees);
-int64_t GetProofOfStakeReward(const CBlockIndex* pindexPrev, int64_t nCoinAge, int64_t nFees);
 bool IsInitialBlockDownload();
 bool IsConfirmedInNPrevBlocks(const CTxIndex& txindex, const CBlockIndex* pindexFrom, int nMaxDepth, int& nActualDepth);
 std::string GetWarnings(std::string strFor);

@@ -6,6 +6,7 @@
 #ifndef BITCOIN_CHAIN_PARAMS_H
 #define BITCOIN_CHAIN_PARAMS_H
 
+#include "chainparamsbase.h"
 #include "bignum.h"
 #include "uint256.h"
 #include "util.h"
@@ -105,13 +106,7 @@ protected:
 const CChainParams &Params();
 
 /** Sets the params returned by Params() to those for the given network. */
-void SelectParams(CChainParams::Network network);
-
-/**
- * Looks for -regtest or -testnet and then calls SelectParams as appropriate.
- * Returns false if an invalid combination is given.
- */
-bool SelectParamsFromCommandLine();
+void SelectParams(const std::string &network);
 
 inline bool TestNet() {
     // Note: it's deliberate that this returns "false" for regression test mode.
